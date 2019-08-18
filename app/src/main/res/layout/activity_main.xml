@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".MainActivity">
+
+	<!--<include layout="@layout/bot_says"/>-->
+	<androidx.recyclerview.widget.RecyclerView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_above="@id/input_layout"
+		android:layout_alignParentStart="true"
+		android:id="@+id/chat_view"/>
+
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/input_layout"
+		android:layout_margin="5dp"
+		android:layout_alignParentBottom="true"
+
+		>
+		<EditText
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:minLines="1"
+			android:minHeight="40dp"
+			android:maxLines="3"
+			android:id="@+id/input_message"
+			android:layout_alignParentStart="true"
+			android:layout_toStartOf="@id/send_container"
+			android:layout_centerVertical="true"
+			android:hint="Type your message here..."
+			android:elevation="15dp"
+			android:background="@drawable/shadow_bg"
+			android:padding="4dp"
+			android:layout_margin="5dp"/>
+
+		<androidx.cardview.widget.CardView
+			android:id="@+id/send_container"
+			android:layout_width="60dp"
+			android:layout_height="40dp"
+			android:elevation="12dp"
+			android:layout_centerVertical="true"
+
+			app:cardBackgroundColor="#006600"
+			app:cardCornerRadius="10dp"
+			android:layout_alignParentEnd="true">
+
+			<ImageView
+				android:id="@+id/bot_icon"
+				android:layout_width="wrap_content"
+				android:layout_height="30dp"
+				android:layout_margin="4dp"
+				android:layout_gravity="center"
+				android:src="@drawable/ic_send_white_24dp" />
+		</androidx.cardview.widget.CardView>
+
+	</RelativeLayout>
+
+</RelativeLayout>
