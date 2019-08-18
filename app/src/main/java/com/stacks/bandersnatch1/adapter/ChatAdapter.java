@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+//import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +13,8 @@ import com.stacks.bandersnatch1.R;
 import com.stacks.bandersnatch1.model.Message;
 
 import java.util.List;
+
+import believe.cht.fadeintextview.TextView;
 
 public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -56,9 +58,16 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 	@Override
 	public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-		((TextView)holder.itemView.findViewById(R.id.message)).setText(
-				messages.get(position).getMessage()
-		);
+
+		if(holder.getItemViewType() == 0) {
+			((TextView) holder.itemView.findViewById(R.id.message)).setText(
+					messages.get(position).getMessage()
+			);
+		}else{
+			((android.widget.TextView) holder.itemView.findViewById(R.id.message)).setText(
+					messages.get(position).getMessage()
+			);
+		}
 	}
 
 	@Override

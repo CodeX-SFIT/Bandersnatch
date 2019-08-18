@@ -35,12 +35,21 @@
 		android:background="#000000"
 		app:cardCornerRadius="4dp">
 
-		<TextView
+
+		<!--<TextView-->
+			<!--android:layout_width="wrap_content"-->
+			<!--android:layout_height="wrap_content"-->
+			<!--android:layout_margin="8dp"-->
+			<!--android:text="THis is some text"-->
+			<!--android:id="@+id/message"-->
+			<!--android:textColor="#ffffff" />-->
+		<believe.cht.fadeintextview.TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_margin="8dp"
 			android:text="THis is some text"
 			android:id="@+id/message"
-			android:textColor="#ffffff" />
+			android:textColor="#ffffff"
+			app:letterDuration="50"/>
 	</androidx.cardview.widget.CardView>
 </RelativeLayout>
