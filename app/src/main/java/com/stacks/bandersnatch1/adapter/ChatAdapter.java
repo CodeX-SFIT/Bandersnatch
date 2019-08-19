@@ -20,10 +20,12 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 	private List<Message> messages;
 	private Context context;
+	private Boolean preload;
 
 	public ChatAdapter(List<Message> messages, Context context) {
 		this.messages = messages;
 		this.context = context;
+		preload = true;
 	}
 
 	@Override
@@ -63,6 +65,11 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 			((TextView) holder.itemView.findViewById(R.id.message)).setText(
 					messages.get(position).getMessage()
 			);
+			if(position != messages.size()-1){
+				((TextView) holder.itemView.findViewById(R.id.message)).setLetterDuration(
+						10
+				);
+			}
 		}else{
 			((android.widget.TextView) holder.itemView.findViewById(R.id.message)).setText(
 					messages.get(position).getMessage()
