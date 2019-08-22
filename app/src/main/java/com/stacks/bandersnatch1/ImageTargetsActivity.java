@@ -101,17 +101,20 @@ public class ImageTargetsActivity extends SampleActivityBase implements SampleAp
 	private AlertDialog mErrorDialog;
 
 	private boolean mIsDroidDevice = false;
-
+	private static String lookingFor = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		Log.d(LOGTAG, "onCreate");
 		super.onCreate(savedInstanceState);
 
+		lookingFor = getIntent().getExtras().getString("looking_for", "");
+
 		vuforiaAppSession = new SampleApplicationSession(this);
 
 		startLoadingAnimation();
-		mDatasetStrings.add("HDD.xml");
+//		mDatasetStrings.add("HDD.xml");
+		mDatasetStrings.add("StonesAndChips.xml");
 //		mDatasetStrings.add("Tarmac.xml");
 
 		vuforiaAppSession
@@ -853,8 +856,12 @@ public class ImageTargetsActivity extends SampleActivityBase implements SampleAp
 			while (true) {
 				if (mRenderer.isTargetCurrentlyTracked()) {
 					name = mRenderer.getTrackableName();
-					Log.d("Target", "doInBackground: tracked " + name);
-					count++;
+					if(name.equals(lookingFor)) {
+						Log.d("Target", "doInBackground: tracked " + name);
+						count++;
+					}else {
+						count = 0;
+					}
 				} else {
 					count = 0;
 				}
@@ -862,7 +869,7 @@ public class ImageTargetsActivity extends SampleActivityBase implements SampleAp
 					break;
 				}
 				try {
-					Thread.sleep(500);
+					Thread.sleep(200);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -874,8 +881,8 @@ public class ImageTargetsActivity extends SampleActivityBase implements SampleAp
 
 		@Override
 		protected void onPostExecute(Void aVoid) {
-			Toast.makeText(ImageTargetsActivity.this, "Target found " + name
-					, Toast.LENGTH_LONG).show();
+			Toast.makeText(ImageTargetsActivity.this, "You found it", Toast.LENGTH_LONG).show();
+			setResult(RESULT_OK);
 			finish();
 			super.onPostExecute(aVoid);
 		}
@@ -884,6 +891,12 @@ public class ImageTargetsActivity extends SampleActivityBase implements SampleAp
 
 	private void showToast(String text) {
 		Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+	}
+
+	@Override
+	public void onBackPressed() {
+		setResult(RESULT_CANCELED);
+		super.onBackPressed();
 	}
 }
 

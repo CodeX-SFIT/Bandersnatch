@@ -1,0 +1,74 @@
+{
+  "story": [
+    {
+      "operations": [
+        {
+          "type": "bot",
+          "bot": "Welcome to this game."
+        },
+        {
+          "type": "wait",
+          "duration": "2"
+        },
+        {
+          "type": "bot",
+          "bot": "Here are your instructions."
+        },
+        {
+          "type": "ar",
+          "name": "stones"
+        },
+        {
+          "type": "goto",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "operations": [
+        {
+          "type": "bot",
+          "bot": "Great you found the stones"
+        },
+        {
+          "type": "wait",
+          "duration": "2"
+        },
+        {
+          "type": "bot",
+          "bot": "Choose wisely..."
+        },
+        {
+          "type": "chooser",
+          "prompt": "Bad boys, bad boys whatcha gonna do? Whacha gonna do when they come for you?",
+          "options": [
+            {
+              "text": "RUN",
+              "index": "0"
+            },
+            {
+              "text": "HIDE",
+              "index": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operations": [
+        {
+          "type": "bot",
+          "bot": "You chose wisely, son."
+        },
+        {
+          "type": "wait",
+          "duration": "2"
+        },
+        {
+          "type": "bot",
+          "bot": "Goodbye."
+        }
+      ]
+    }
+  ]
+}

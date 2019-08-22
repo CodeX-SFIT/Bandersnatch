@@ -1,0 +1,60 @@
+{
+  "story": [
+    {
+      "operations": [
+        {
+          "type": "bot",
+          "bot": "Welcome to this game."
+        },
+        {
+          "type": "wait",
+          "duration": "2"
+        },
+        {
+          "type": "bot",
+          "bot": "Here are your instructions."
+        },
+        {
+          "type": "wait",
+          "duration": "2"
+        },
+        {
+          "type": "bot",
+          "bot": "Jumping to a new story."
+        },
+        {
+          "type": "wait",
+          "duration": "2"
+        },
+        {
+          "type": "jump",
+          "index": "1"
+        }
+      ]
+    },
+    {
+      "operations": [
+        {
+          "type": "bot",
+          "bot": "Welcome to this game."
+        },
+        {
+          "type": "wait",
+          "duration": "2"
+        },
+        {
+          "type": "bot",
+          "bot": "Here are your instructions."
+        },
+        {
+          "type": "wait",
+          "duration": "2"
+        },
+        {
+          "type": "bot",
+          "bot": "Stories end here"
+        }
+      ]
+    }
+  ]
+}

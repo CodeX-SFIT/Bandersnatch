@@ -34,7 +34,7 @@ public class ChooserActivity extends AppCompatActivity {
 		option0.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				option0.setTextSize(option0.getTextSize()+2);
+				option0.setTextSize(option0.getTextSize()+1);
 				CountDownTimer timer = new CountDownTimer(1000, 1000) {
 					@Override
 					public void onTick(long millisUntilFinished) {
@@ -56,7 +56,7 @@ public class ChooserActivity extends AppCompatActivity {
 		option1.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				option1.setTextSize(option1.getTextSize()+2);
+				option1.setTextSize(option1.getTextSize()+1);
 				CountDownTimer timer = new CountDownTimer(1000, 1000) {
 					@Override
 					public void onTick(long millisUntilFinished) {

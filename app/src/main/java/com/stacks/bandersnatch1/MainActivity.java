@@ -6,7 +6,9 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -20,6 +22,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,246 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
 	RecyclerView chatView;
 	CardView sendButton;
+	CardView cameraButton;
 	EditText txtInput;
 
-	String strStories = "{\n" +
-			"  \"story\": [\n" +
-			"    {\n" +
-			"      \"operations\": [\n" +
-			"        {\n" +
-			"          \"type\": \"bot\",\n" +
-			"          \"bot\": \"Welcome to this game.\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"wait\",\n" +
-			"          \"duration\": \"2\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"bot\",\n" +
-			"          \"bot\": \"Here are your instructions.\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"ar\",\n" +
-			"          \"name\": \"stones\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"goto\",\n" +
-			"          \"index\": 1\n" +
-			"        }\n" +
-			"      ]\n" +
-			"    },\n" +
-			"    {\n" +
-			"      \"operations\": [\n" +
-			"        {\n" +
-			"          \"type\": \"bot\",\n" +
-			"          \"bot\": \"Great you found the stones\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"wait\",\n" +
-			"          \"duration\": \"2\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"bot\",\n" +
-			"          \"bot\": \"Choose wisely...\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"chooser\",\n" +
-			"          \"prompt\": \"Bad boys, bad boys whatcha gonna do? Whacha gonna do when they come for you?\",\n" +
-			"          \"options\": [\n" +
-			"            {\n" +
-			"              \"text\": \"RUN\",\n" +
-			"              \"index\": \"0\"\n" +
-			"            },\n" +
-			"            {\n" +
-			"              \"text\": \"HIDE\",\n" +
-			"              \"index\": \"2\"\n" +
-			"            }\n" +
-			"          ]\n" +
-			"        }\n" +
-			"      ]\n" +
-			"    },\n" +
-			"    {\n" +
-			"      \"operations\": [\n" +
-			"        {\n" +
-			"          \"type\": \"bot\",\n" +
-			"          \"bot\": \"You chose wisely, son.\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"wait\",\n" +
-			"          \"duration\": \"2\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"bot\",\n" +
-			"          \"bot\": \"Goodbye.\"\n" +
-			"        }\n" +
-			"      ]\n" +
-			"    }\n" +
-			"  ]\n" +
-			"}";
-
-	String strStory2 = "{\n" +
-			"  \"story\": [\n" +
-			"    {\n" +
-			"      \"operations\": [\n" +
-			"        {\n" +
-			"          \"type\": \"bot\",\n" +
-			"          \"bot\": \"Welcome to this game.\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"wait\",\n" +
-			"          \"duration\": \"2\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"bot\",\n" +
-			"          \"bot\": \"Here are your instructions.\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"wait\",\n" +
-			"          \"duration\": \"2\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"bot\",\n" +
-			"          \"bot\": \"Jumping to a new story.\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"wait\",\n" +
-			"          \"duration\": \"2\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"jump\",\n" +
-			"          \"index\": \"1\"\n" +
-			"        }\n" +
-			"      ]\n" +
-			"    },\n" +
-			"    {\n" +
-			"      \"operations\": [\n" +
-			"        {\n" +
-			"          \"type\": \"bot\",\n" +
-			"          \"bot\": \"Welcome to this game.\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"wait\",\n" +
-			"          \"duration\": \"2\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"bot\",\n" +
-			"          \"bot\": \"Here are your instructions.\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"wait\",\n" +
-			"          \"duration\": \"2\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"bot\",\n" +
-			"          \"bot\": \"Stories end here\"\n" +
-			"        }\n" +
-			"      ]\n" +
-			"    }\n" +
-			"  ]\n" +
-			"}";
-
-	String strStory3 = "{\n" +
-			"  \"story\": [\n" +
-			"    {\n" +
-			"      \"operations\": [\n" +
-			"        {\n" +
-			"          \"type\": \"bot\",\n" +
-			"          \"bot\": \"Welcome to this game.\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"wait\",\n" +
-			"          \"duration\": \"2\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"bot\",\n" +
-			"          \"bot\": \"Here are your instructions.\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"wait\",\n" +
-			"          \"duration\": \"2\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"bot\",\n" +
-			"          \"bot\": \"Jumping to a new story.\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"wait\",\n" +
-			"          \"duration\": \"2\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"jump\",\n" +
-			"          \"index\": \"1\"\n" +
-			"        }\n" +
-			"      ]\n" +
-			"    },\n" +
-			"    {\n" +
-			"      \"operations\": [\n" +
-			"        {\n" +
-			"          \"type\": \"bot\",\n" +
-			"          \"bot\": \"Welcome to this game.\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"wait\",\n" +
-			"          \"duration\": \"2\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"bot\",\n" +
-			"          \"bot\": \"Here are your instructions.\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"wait\",\n" +
-			"          \"duration\": \"2\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"chooser\",\n" +
-			"          \"prompt\": \"Bad boys, bad boys whatcha gonna do? Whatcha gonna do when they come for you?\",\n" +
-			"          \"options\": [\n" +
-			"            {\n" +
-			"              \"text\": \"RUN\",\n" +
-			"              \"index\": \"2\"\n" +
-			"            },\n" +
-			"            {\n" +
-			"              \"text\": \"HIDE\",\n" +
-			"              \"index\": \"3\"\n" +
-			"            }\n" +
-			"          ]\n" +
-			"        }\n" +
-			"      ]\n" +
-			"    },\n" +
-			"    {\n" +
-			"      \"operations\": [\n" +
-			"        {\n" +
-			"          \"type\": \"bot\",\n" +
-			"          \"bot\": \"You chose option 1\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"wait\",\n" +
-			"          \"duration\": \"2\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"bot\",\n" +
-			"          \"bot\": \"Stories end here\"\n" +
-			"        }\n" +
-			"      ]\n" +
-			"    },\n" +
-			"    {\n" +
-			"      \"operations\": [\n" +
-			"        {\n" +
-			"          \"type\": \"bot\",\n" +
-			"          \"bot\": \"You chose option 2\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"wait\",\n" +
-			"          \"duration\": \"2\"\n" +
-			"        },\n" +
-			"        {\n" +
-			"          \"type\": \"bot\",\n" +
-			"          \"bot\": \"Stories end here\"\n" +
-			"        }\n" +
-			"      ]\n" +
-			"    }\n" +
-			"  ]\n" +
-			"}";
 
 	private static JSONArray stories;
 
@@ -285,17 +52,14 @@ public class MainActivity extends AppCompatActivity {
 		txtInput = findViewById(R.id.input_message);
 
 		try {
-			stories = new JSONObject(strStory3).getJSONArray("story");
+			stories = new JSONObject(AssetJSONFile("scripts/4.json")).getJSONArray("story");
 		} catch (JSONException e) {
+			e.printStackTrace();
+		} catch (IOException e){
 			e.printStackTrace();
 		}
 		messageList = new ArrayList<>();
-//		for (int i = 0; i < 5; i++) {
-//			Message message = new Message();
-//			message.setBot(i%2==0);
-//			message.setMessage("Thkljdlaksjkl;asj d ladsjd jlhcl\n dlasjdlkas dlkasj dlkasj lkdas jldkjla lkasjd lksaj dlkasj laksdlk");
-//			messageList.add(message);
-//		}
+
 
 		chatView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -306,13 +70,11 @@ public class MainActivity extends AppCompatActivity {
 		sendButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-//				startActivity(new Intent(MainActivity.this, ChooserActivity.class));
 				if(!txtInput.getText().toString().trim().equals("")){
 					Message message = new Message();
 					message.setMessage(txtInput.getText().toString());
 					message.setBot(false);
 					messageList.add(message);
-//					chatView.notifyAll();
 					chatView.getAdapter().notifyItemInserted(messageList.size()-1);
 					chatView.scrollToPosition(messageList.size()-1);
 					txtInput.setText("");
@@ -333,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
 						}
 					};
 					timer.start();
-//					chatView.
 				}
 			}
 		});
@@ -346,12 +107,22 @@ public class MainActivity extends AppCompatActivity {
 			}
 		});
 
+		cameraButton = findViewById(R.id.camera_container);
+		cameraButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				JSONObject operation = current_operations.optJSONObject(operation_index);
+				Intent intent = new Intent(MainActivity.this, ImageTargetsActivity.class);
+				intent.putExtra("looking_for", operation.optString("looking_for"));
+				startActivityForResult(intent, 101);
+			}
+		});
+
 		startStory();
 	}
 
 
 	void startStory(){
-//		ChatAdapter adapter = new ChatAdapter()
 		messageList.clear();
 		adapter.notifyDataSetChanged();
 		story_index = 0;
@@ -365,18 +136,12 @@ public class MainActivity extends AppCompatActivity {
 			operation_index++;
 			if(operation_index == current_operations.length()) {
 				Toast.makeText(MainActivity.this, "Story completed", Toast.LENGTH_SHORT).show();
-
-//				nextStory();
 				break;
 			}
 		}
-//		if(operation_index != current_operations.length()-1){
-//
-//		}
 	}
 
 	private void nextStory(){
-//		story_index++;
 		if(story_index == stories.length()){
 			Toast.makeText(this, "All stories completed", Toast.LENGTH_SHORT).show();
 		}else{
@@ -412,7 +177,6 @@ public class MainActivity extends AppCompatActivity {
 							operation_index++;
 							if(operation_index == current_operations.length()) {
 								Toast.makeText(MainActivity.this, "Story completed", Toast.LENGTH_SHORT).show();
-//								nextStory();
 								break;
 							}
 						}
@@ -427,6 +191,9 @@ public class MainActivity extends AppCompatActivity {
 				nextStory();
 				return false;
 			case "ar":
+				cameraButton.setVisibility(View.VISIBLE);
+				txtInput.setVisibility(View.GONE);
+				sendButton.setVisibility(View.GONE);
 
 				return false;
 			case "chooser":
@@ -436,9 +203,9 @@ public class MainActivity extends AppCompatActivity {
 				JSONArray options = operation.optJSONArray("options");
 				bundle.putString("option0", options.optJSONObject(0).optString("text"));
 				bundle.putString("option1", options.optJSONObject(1).optString("text"));
-				Intent intent = new Intent(MainActivity.this, ChooserActivity.class);
-				intent.putExtras(bundle);
-				startActivityForResult(intent, 100);
+				Intent intent1 = new Intent(MainActivity.this, ChooserActivity.class);
+				intent1.putExtras(bundle);
+				startActivityForResult(intent1, 100);
 
 				return false;
 		}
@@ -455,7 +222,32 @@ public class MainActivity extends AppCompatActivity {
 				story_index = options.optJSONObject(selection).optInt("index");
 				nextStory();
 			}
+		}else if(requestCode == 101 && resultCode == RESULT_OK){
+
+			cameraButton.setVisibility(View.GONE);
+			sendButton.setVisibility(View.VISIBLE);
+			txtInput.setVisibility(View.VISIBLE);
+
+			operation_index++;
+			while(executeOperation()){
+				operation_index++;
+				if(operation_index == current_operations.length()) {
+					Toast.makeText(MainActivity.this, "Story completed", Toast.LENGTH_SHORT).show();
+					break;
+				}
+			}
 		}
 		super.onActivityResult(requestCode, resultCode, data);
+	}
+
+
+	public String AssetJSONFile (String filename) throws IOException {
+		AssetManager manager = getAssets();
+		InputStream file = manager.open(filename);
+		byte[] formArray = new byte[file.available()];
+		file.read(formArray);
+		file.close();
+
+		return new String(formArray);
 	}
 }
