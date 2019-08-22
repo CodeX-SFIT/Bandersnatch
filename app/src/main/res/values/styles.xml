@@ -9,6 +9,10 @@
 		<item name="android:fontFamily">@font/engcarnation_demo</item>
 		<item name="android:textSize">16sp</item>
 	</style>
+	<style name="SampleAppsTheme" parent="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:windowBackground">@color/black</item>
+	</style>
 
 
 </resources>

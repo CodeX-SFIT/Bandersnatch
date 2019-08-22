@@ -1,5 +1,8 @@
 apply plugin: 'com.android.application'
 
+def VUFORIA_SDK_DIR = 'C:/Users/Sahil/AppData/Local/vuforia-sdk-android-8-3-8'
+
+
 android {
     compileSdkVersion 28
     buildToolsVersion "29.0.1"
@@ -11,6 +14,21 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+
+    sourceSets.main {
+        jni.srcDirs = []
+        jniLibs.srcDir "$VUFORIA_SDK_DIR/build/lib/"
+    }
+
+    archivesBaseName = rootProject.projectDir.getName()
+
+    // Ensure that Vuforia Engine datasets placed in the assets folder do not get compressed as
+    // this can significantly increase their loading time
+    aaptOptions {
+        noCompress 'dat'
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -20,7 +38,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     testImplementation 'junit:junit:4.12'
@@ -28,7 +46,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    implementation ('com.github.chtgupta:FadeInTextView-Android:2.1.0') {
+    implementation('com.github.chtgupta:FadeInTextView-Android:2.1.0') {
         exclude module: 'app'
     }
+    implementation files("$VUFORIA_SDK_DIR/build/java/Vuforia/Vuforia.jar")
+
 }
