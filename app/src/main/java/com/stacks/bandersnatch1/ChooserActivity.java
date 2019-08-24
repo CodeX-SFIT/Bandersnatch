@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
@@ -30,11 +34,11 @@ public class ChooserActivity extends AppCompatActivity {
 		prompt.setText(bundle.getString("prompt", ""));
 		option0.setText(bundle.getString("option0", ""));
 		option1.setText(bundle.getString("option1", ""));
-
 		option0.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				option0.setTextSize(option0.getTextSize()+1);
+				option1.setVisibility(View.GONE);
+				layoutOr.setVisibility(View.GONE);
 				CountDownTimer timer = new CountDownTimer(1000, 1000) {
 					@Override
 					public void onTick(long millisUntilFinished) {
@@ -56,7 +60,8 @@ public class ChooserActivity extends AppCompatActivity {
 		option1.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				option1.setTextSize(option1.getTextSize()+1);
+				option0.setVisibility(View.GONE);
+				layoutOr.setVisibility(View.GONE);
 				CountDownTimer timer = new CountDownTimer(1000, 1000) {
 					@Override
 					public void onTick(long millisUntilFinished) {

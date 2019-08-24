@@ -27,7 +27,8 @@
 		android:orientation="vertical"
 		android:layout_below="@id/prompt"
 		android:layout_alignParentEnd="true"
-		android:weightSum="1.0">
+		android:weightSum="1.0"
+		android:animateLayoutChanges="true">
 		<TextView
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
@@ -49,7 +50,8 @@
 			android:weightSum="1.0"
 			android:orientation="horizontal"
 			android:visibility="invisible"
-			android:id="@+id/or_layout">
+			android:id="@+id/or_layout"
+			android:animateLayoutChanges="true">
 			<View
 				android:layout_width="0dp"
 				android:layout_height="2dp"

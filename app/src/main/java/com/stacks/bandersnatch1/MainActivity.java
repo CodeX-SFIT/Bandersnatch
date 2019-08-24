@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.stacks.bandersnatch1.adapter.ChatAdapter;
@@ -33,13 +34,44 @@ public class MainActivity extends AppCompatActivity {
 	CardView sendButton;
 	CardView cameraButton;
 	EditText txtInput;
-
+	TextView btnContinue;
 
 	private static JSONArray stories;
 
 	private static int story_index;
 	private static int operation_index;
 	private static JSONArray current_operations;
+	private View.OnClickListener sendMessage = new View.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			if(!txtInput.getText().toString().trim().equals("")){
+				Message message = new Message();
+				message.setMessage(txtInput.getText().toString());
+				message.setBot(false);
+				messageList.add(message);
+				chatView.getAdapter().notifyItemInserted(messageList.size()-1);
+				chatView.scrollToPosition(messageList.size()-1);
+				txtInput.setText("");
+				CountDownTimer timer = new CountDownTimer(5000, 1000) {
+					@Override
+					public void onTick(long millisUntilFinished) {
+
+					}
+
+					@Override
+					public void onFinish() {
+						Message message1 = new Message();
+						message1.setMessage("This is a response");
+						message1.setBot(true);
+						messageList.add(message1);
+						chatView.getAdapter().notifyItemInserted(messageList.size()-1);
+						chatView.scrollToPosition(messageList.size()-1);
+					}
+				};
+				timer.start();
+			}
+		}
+	};
 
 	ChatAdapter adapter;
 	private List<Message> messageList;
@@ -50,9 +82,10 @@ public class MainActivity extends AppCompatActivity {
 
 		chatView = findViewById(R.id.chat_view);
 		txtInput = findViewById(R.id.input_message);
+		btnContinue = findViewById(R.id.btnContinue);
 
 		try {
-			stories = new JSONObject(AssetJSONFile("scripts/4.json")).getJSONArray("story");
+			stories = new JSONObject(AssetJSONFile("scripts/5.json")).getJSONArray("story");
 		} catch (JSONException e) {
 			e.printStackTrace();
 		} catch (IOException e){
@@ -67,45 +100,15 @@ public class MainActivity extends AppCompatActivity {
 		chatView.setAdapter(adapter);
 
 		sendButton = findViewById(R.id.send_container);
-		sendButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				if(!txtInput.getText().toString().trim().equals("")){
-					Message message = new Message();
-					message.setMessage(txtInput.getText().toString());
-					message.setBot(false);
-					messageList.add(message);
-					chatView.getAdapter().notifyItemInserted(messageList.size()-1);
-					chatView.scrollToPosition(messageList.size()-1);
-					txtInput.setText("");
-					CountDownTimer timer = new CountDownTimer(5000, 1000) {
-						@Override
-						public void onTick(long millisUntilFinished) {
+		sendButton.setOnClickListener(sendMessage);
 
-						}
-
-						@Override
-						public void onFinish() {
-							Message message1 = new Message();
-							message1.setMessage("This is a response");
-							message1.setBot(true);
-							messageList.add(message1);
-							chatView.getAdapter().notifyItemInserted(messageList.size()-1);
-							chatView.scrollToPosition(messageList.size()-1);
-						}
-					};
-					timer.start();
-				}
-			}
-		});
-
-		sendButton.setOnLongClickListener(new View.OnLongClickListener() {
-			@Override
-			public boolean onLongClick(View v) {
-				startActivity(new Intent(MainActivity.this, ChooserActivity.class));
-				return true;
-			}
-		});
+//		sendButton.setOnLongClickListener(new View.OnLongClickListener() {
+//			@Override
+//			public boolean onLongClick(View v) {
+//				startActivity(new Intent(MainActivity.this, ChooserActivity.class));
+//				return true;
+//			}
+//		});
 
 		cameraButton = findViewById(R.id.camera_container);
 		cameraButton.setOnClickListener(new View.OnClickListener() {
@@ -189,6 +192,26 @@ public class MainActivity extends AppCompatActivity {
 				story_index = operation.optInt("index");
 				Toast.makeText(this, "Jumping", Toast.LENGTH_SHORT).show();
 				nextStory();
+				return false;
+
+			case "user_wait":
+				txtInput.setVisibility(View.GONE);
+				btnContinue.setVisibility(View.VISIBLE);
+				sendButton.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						txtInput.setVisibility(View.VISIBLE);
+						btnContinue.setVisibility(View.GONE);
+						operation_index++;
+						while(executeOperation()){
+							operation_index++;
+							if(operation_index == current_operations.length()) {
+								Toast.makeText(MainActivity.this, "Story completed", Toast.LENGTH_SHORT).show();
+								break;
+							}
+						}
+					}
+				});
 				return false;
 			case "ar":
 				cameraButton.setVisibility(View.VISIBLE);

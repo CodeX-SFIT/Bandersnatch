@@ -1,0 +1,129 @@
+{
+  "story": [
+    {
+      "operations": [
+        {
+          "type": "bot",
+          "bot": "Welcome to this game."
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "bot",
+          "bot": "Here are your instructions."
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "bot",
+          "bot": "Jumping to a new story."
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "user_wait"
+        },
+        {
+          "type": "jump",
+          "index": 1
+        }
+      ]
+    },
+    {
+      "operations": [
+        {
+          "type": "bot",
+          "bot": "Welcome to this game."
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "bot",
+          "bot": "Here are your instructions."
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "chooser",
+          "prompt": "Bad boys, bad boys whatcha gonna do? Whatcha gonna do when they come for you?",
+          "options": [
+            {
+              "text": "RUN",
+              "index": 2
+            },
+            {
+              "text": "HIDE",
+              "index": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operations": [
+        {
+          "type": "bot",
+          "bot": "You chose option 1"
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "bot",
+          "bot": "Look for stones"
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "ar",
+          "looking_for": "stones"
+        },
+        {
+          "type": "bot",
+          "bot": "You found stones... Stories end here"
+        }
+      ]
+    },
+    {
+      "operations": [
+        {
+          "type": "bot",
+          "bot": "You chose option 2"
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "bot",
+          "bot": "Look for chips"
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "ar",
+          "looking_for": "chips"
+        },
+        {
+          "type": "bot",
+          "bot": "You found chips... Stories end here"
+        }
+      ]
+    }
+  ]
+}
