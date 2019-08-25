@@ -173,7 +173,7 @@ public class ImageTargetRenderer extends SampleRendererBase implements SampleApp
 
                 textureIndex = mActivityRef.get().isDeviceTrackingActive() ? 3 : textureIndex;
 
-                renderModel(projectionMatrix, devicePoseMatrix.getData(), modelMatrix.getData(), textureIndex);
+//                renderModel(projectionMatrix, devicePoseMatrix.getData(), modelMatrix.getData(), textureIndex);
 
                 SampleUtils.checkGLError("Image Targets renderFrame");
             }

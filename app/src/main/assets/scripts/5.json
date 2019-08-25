@@ -94,6 +94,10 @@
         {
           "type": "bot",
           "bot": "You found stones... Stories end here"
+        },
+        {
+          "type": "jump",
+          "index": 3
         }
       ]
     },

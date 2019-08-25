@@ -103,6 +103,8 @@ public class ImageTargetsActivity extends SampleActivityBase implements SampleAp
 	private boolean mIsDroidDevice = false;
 	private static String lookingFor = "";
 
+	private static TrackImage trackImage;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		Log.d(LOGTAG, "onCreate");
@@ -124,7 +126,7 @@ public class ImageTargetsActivity extends SampleActivityBase implements SampleAp
 
 		// Load any sample specific textures:
 		mTextures = new Vector<>();
-		loadTextures();
+//		loadTextures();
 
 		mIsDroidDevice = android.os.Build.MODEL.toLowerCase().startsWith("droid");
 
@@ -300,7 +302,7 @@ public class ImageTargetsActivity extends SampleActivityBase implements SampleAp
 		mGlView.init(translucent, depthSize, stencilSize);
 
 		mRenderer = new ImageTargetRenderer(this, vuforiaAppSession, ImageTargetsActivity.this);
-		mRenderer.setTextures(mTextures);
+//		mRenderer.setTextures(mTextures);
 		mGlView.setRenderer(mRenderer);
 		mGlView.setPreserveEGLContextOnPause(true);
 
@@ -570,7 +572,8 @@ public class ImageTargetsActivity extends SampleActivityBase implements SampleAp
 
 		if (objectTracker != null && objectTracker.start()) {
 			Log.i(LOGTAG, "Successfully started Object Tracker");
-			new TrackImage().execute();
+			trackImage = new TrackImage();
+			trackImage.execute();
 		} else {
 			Log.e(LOGTAG, "Failed to start Object Tracker");
 			result = false;
@@ -853,7 +856,7 @@ public class ImageTargetsActivity extends SampleActivityBase implements SampleAp
 		@Override
 		protected Void doInBackground(Void... voids) {
 			int count = 0;
-			while (true) {
+			while (!this.isCancelled()) {
 				if (mRenderer.isTargetCurrentlyTracked()) {
 					name = mRenderer.getTrackableName();
 					if(name.equals(lookingFor)) {
@@ -873,6 +876,7 @@ public class ImageTargetsActivity extends SampleActivityBase implements SampleAp
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				Log.d("TAG", "doInBackground: checking");
 			}
 			return null;
 		}
@@ -896,6 +900,10 @@ public class ImageTargetsActivity extends SampleActivityBase implements SampleAp
 	@Override
 	public void onBackPressed() {
 		setResult(RESULT_CANCELED);
+		if(trackImage != null){
+			Log.d("TAG", "onBackPressed: Cancelling");
+			trackImage.cancel(true);
+		}
 		super.onBackPressed();
 	}
 }
