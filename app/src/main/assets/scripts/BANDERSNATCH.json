@@ -1,0 +1,412 @@
+{
+  "story": [
+    {
+      "operations": [
+        {
+          "type": "bot",
+          "bot": "Welcome to Bandersnatch. This game will test your reasoning and logical abilities. Every choice you       make impacts the story in ways beyond your              comprehension. At points you may want to give up at      others the adrenaline will keep you on our nerves.    This is a game of choices, are you ready to jump in?"
+        },
+        {
+          "type": "wait",
+          "duration": 4
+        },
+        {
+          "type": "chooser",
+          "prompt": "Are you ready",
+          "options": [
+            {
+              "text": "YES",
+              "index": 1
+            },
+            {
+              "text": "NO",
+              "index": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operations": [
+        {
+          "type": "bot",
+          "bot": "Nirav Modi was a corporate slave, stuck in the monotonous loop of a 9-5 job. Your classic case of Eat-Sleep-Work repeat. But he wasn’t your average engineer, with a degree from IIT and an outstanding academic record he was stuck with an underpaid overworked job."
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "bot",
+          "bot": "Nirav was fed up of this monotony and to stick it to the system he planned a heist. He got like minded fellow engineers and robbed 500 million Dollars from PCB national bank.You are the Chief Investigating officer on the case. You’ve nabbed all of his associates andyou’re your after Nirav."
+        },
+        {
+          "type": "wait",
+          "duration": 4
+        },
+        {
+          "type": "bot",
+          "bot": "Some hints before you begin:Nirav is :-Superhero comic nerd Quentin Tarantino fan Coding enthusiast"
+        },
+        {
+          "type": "jump",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "operations": [
+        {
+          "type": "bot",
+          "bot": "We are at Niravs Residence Searching for some clues."
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "bot",
+          "bot": "Looks like we’ve found a brochure and a letter."
+        },
+        {
+          "type": "chooser",
+          "prompt": "Select BROCHURE OR LETTER",
+          "options": [
+            {
+              "text": "BROCHURE",
+              "index": 3
+            },
+            {
+              "text": "LETTER",
+              "index": 4
+            }
+          ]
+        }
+      ],
+      "_comment": "index 2 at niravs residence"
+    },
+    {
+      "operations": [
+        {
+          "type": "bot",
+          "bot": "you chose option of brochure"
+        },
+        {
+          "type": "wait",
+          "durtion": 2
+        },
+        {
+          "type": "ar",
+          "looking_for": " BROCHURE"
+        },
+        {
+          "type": "jump",
+          "index": 5
+        }
+      ],
+      "_comment": "brochure"
+    },
+    {
+      "_comment": "letter index 4",
+      "operations": [
+        {
+          "type": "bot",
+          "bot": "you chose option of letter"
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "jump",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "_coment": "index 5 decision between phuket and bangkok",
+      "operations": [
+        {
+          "type": "bot",
+          "bot": "Looks like we’re going to Phi Phi islands then. Where         should I book a flight for?"
+        },
+        {
+          "type": "chooser",
+          "prompt": "Where to Phuket or Bangkok",
+          "options": [
+            {
+              "text": "Phuket",
+              "index": 6
+            },
+            {
+              "text": "Bangkok",
+              "index": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment": "index 6 is phuket",
+      "operations": [
+        {
+          "type": "bot",
+          "character": "fop",
+          "bot": "Hello Sir, How may I help you?"
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "user",
+          "user": "Hello I am Detective from RAW. We’re looking for Nirav Modi. Our intelligence says he’s stationed here."
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "bot",
+          "character": "fop",
+          "bot": "I’m sorry sir but Nirav Modi checked out a couple of days ago but his Girlfriend is still here in room number 422."
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "user",
+          "user": "Thanks"
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "bot",
+          "bot": "Run to room 422. Be fast or she will run away !!"
+        },
+        {
+          "type": "wait",
+          "duration": 4
+        },
+        {
+          "type": "bot",
+          "bot": "Hurry up Detective"
+        },
+        {
+          "type": "wait",
+          "duration": 5
+        },
+        {
+          "type": "ar",
+          "looking_for": "secret_code"
+        },
+        {
+          "type": "wait",
+          "duration": 5
+        },
+        {
+          "type": "bot",
+          "bot": "Looks like we have caught her"
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "bot",
+          "character": "annie",
+          "bot": "Whats the meaning of this?"
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "user",
+          "user": "Where is Nirav?"
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "bot",
+          "character": "annie",
+          "bot": "I don’t know anything. Let me go.He left me here 2 days ago saying I’d be safe."
+        },
+        {
+          "type": "duration",
+          "duration": 2
+        },
+        {
+          "type": "user",
+          "user": "Clearly you aren’t! Tell us where he is or you’ll be sentenced as his associate."
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "bot",
+          "character": "annie",
+          "bot": "Seriously I don’t know. All I remember is that he was saying he was going to convert all the money into the strongest currency."
+        },
+        {
+          "type": "wait",
+          "duration": "2"
+        },
+        {
+          "type": "bot",
+          "bot": "Looks like this information is useful! Let move fast. She doesn’t seem to have any information"
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "user",
+          "bot": "Which is the strongest currecy"
+        },
+        {
+          "type": "chooser",
+          "prompt": "Strongest Currency Kuwait or England",
+          "options": [
+            {
+              "text": "Kuwait",
+              "index": 8
+            },
+            {
+              "text": "England",
+              "index": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment": "index 7 is bangkok",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "character":"fop",
+          "bot":"Hello Sir, how may i help you?"
+        },
+        {
+          "type":"wait",
+          "duration":2
+        },
+        {
+          "type":"user",
+          "user":"Hello I am a Detective from RAW. We’re looking for Nirav Modi. Our              intelligence says he’s stationed here."
+        },
+        {
+          "type":"wait",
+          "duration":2
+        },
+        {
+          "type":"fop",
+          "character":"fop",
+          "bot":"Nirav Modi checked out a couple of days ago."
+        },
+        {
+          "type":"wait",
+          "duration":2
+        },
+        {
+          "type":"user",
+          "user":"I need access to his room"
+        },
+        {
+          "type":"wait",
+          "duration":2
+        },
+        {
+          "type":"bot",
+          "character":"fop",
+          "bot":"I’m sorry sir Its against Hotel Policy. I could give you his number though.    But it’ll come at a cost."
+        },
+        {
+          "type":"wait",
+          "duration":2
+        },
+        {
+          "type":"chooser",
+          "prompt":"Pay bribe or Terrify",
+          "options":
+          [
+            {
+              "text":"Terrify",
+              "index":10
+            },
+            {
+              "text":"Pay bribe",
+              "index":11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment":"index 8 for kuwait"
+    },
+    {
+      "_comment":"index 9 for england"
+    },
+    {
+      "_comment":"index 10 for terrify(7)",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "character":"fop",
+          "bot":"Then there is nothing I can do sir."
+        },
+        {
+          "type":"wait",
+          "duration":2
+        },
+        {
+          "type":"user",
+          "user":"Looks like your Boss does not know who is sleeping with his wife."
+        },
+        {
+          "type":"wait",
+          "duration":2
+        },
+        {
+          "type":"bot",
+          "character":"fop",
+          "bot":"No you don’t"
+        },
+        {
+          "type":"wait",
+          "duration":2
+        },
+        {
+          "type":"user",
+          "user":"Oh I’ve got much more info than this. Are you giving me the number or          should I go on?"
+        },
+        {
+          "type":"wait",
+          "duration":2
+        },
+        {
+          "type":"bot",
+          "character":"fop",
+          "bot":"Sorry"
+        },
+        {
+          "type":"jump",
+          "index":"12"
+        }
+      ]
+    },
+    {
+      "_comment":"index 11 of index 7(Pay bribr)"
+    }
+  ]
+}

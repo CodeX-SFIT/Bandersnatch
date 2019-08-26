@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 		btnContinue = findViewById(R.id.btnContinue);
 
 		try {
-			stories = new JSONObject(AssetJSONFile("scripts/5.json")).getJSONArray("story");
+			stories = new JSONObject(AssetJSONFile("scripts/BANDERSNATCH.json")).getJSONArray("story");
 		} catch (JSONException e) {
 			e.printStackTrace();
 		} catch (IOException e){
