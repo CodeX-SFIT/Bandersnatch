@@ -4,17 +4,18 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 //import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.stacks.bandersnatch1.R;
 import com.stacks.bandersnatch1.model.Message;
 
 import java.util.List;
-
-import believe.cht.fadeintextview.TextView;
 
 public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -31,7 +32,10 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 	public int getItemViewType(int position) {
 		if(messages.get(position).getBot())
 			return 0;
-		return 1;
+		else if(messages.get(position).getSeparator())
+			return -1;
+		else
+			return 1;
 //		return super.getItemViewType(position);
 	}
 
@@ -46,6 +50,13 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 					false
 			);
 			viewHolder = new BotMessage(view);
+		}else if(viewType == -1){
+			View view = LayoutInflater.from(parent.getContext()).inflate(
+					R.layout.text_separator,
+					parent,
+					false
+			);
+			viewHolder = new RecyclerView.ViewHolder(view){};
 		}else{
 			View view = LayoutInflater.from(parent.getContext()).inflate(
 					R.layout.user_says,
@@ -60,20 +71,43 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 	@Override
 	public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
-		if(holder.getItemViewType() == 0) {
-			((TextView) holder.itemView.findViewById(R.id.message)).setText(
-					messages.get(position).getMessage()
-			);
-			if(position != messages.size()-1){
-				((TextView) holder.itemView.findViewById(R.id.message)).setLetterDuration(
-						10
-				);
+//		if(holder.getItemViewType() == 0) {
+//			((TextView) holder.itemView.findViewById(R.id.message)).setText(
+//					messages.get(position).getMessage()
+//			);
+//			if(position != messages.size()-1){
+//				((TextView) holder.itemView.findViewById(R.id.message)).setLetterDuration(
+//						10
+//				);
+//			}
+//		}else{
+		if(holder.getItemViewType() == -1)
+			return;
+		((android.widget.TextView) holder.itemView.findViewById(R.id.message)).setText(
+				messages.get(position).getMessage()
+		);
+		if(holder.getItemViewType() == 0){
+			if(messages.get(position).getCharacter_pic() != -1){
+				Glide.with(context)
+						.load(messages.get(position).getCharacter_pic())
+						.into((ImageView)holder.itemView.findViewById(R.id.bot_icon));
 			}
-		}else{
-			((android.widget.TextView) holder.itemView.findViewById(R.id.message)).setText(
-					messages.get(position).getMessage()
-			);
+			if(position != 0){
+				if(messages.get(position - 1).getCharacter_name() != null &&
+						messages.get(position).getCharacter_name() != null) {
+					if (messages.get(position - 1).getCharacter_name().equals(messages.get(position).getCharacter_name())) {
+						holder.itemView.findViewById(R.id.icon_container).setVisibility(View.INVISIBLE);
+					}else{
+						holder.itemView.findViewById(R.id.icon_container).setVisibility(View.VISIBLE);
+					}
+				}else{
+					holder.itemView.findViewById(R.id.icon_container).setVisibility(View.VISIBLE);
+				}
+			}else{
+				holder.itemView.findViewById(R.id.icon_container).setVisibility(View.VISIBLE);
+			}
 		}
+//		}
 	}
 
 	@Override

@@ -4,11 +4,46 @@
       "operations": [
         {
           "type": "bot",
-          "bot": "Welcome to Bandersnatch. This game will test your reasoning and logical abilities. Every choice you       make impacts the story in ways beyond your              comprehension. At points you may want to give up at      others the adrenaline will keep you on our nerves.    This is a game of choices, are you ready to jump in?"
+          "bot": "Welcome to Bandersnatch."
         },
         {
           "type": "wait",
           "duration": 4
+        },
+        {
+          "type": "bot",
+          "bot": "This game will test your reasoning and logical abilities."
+        },
+        {
+          "type": "wait",
+          "duration": 4
+        },
+        {
+          "type": "bot",
+          "bot": "Every choice you make impacts the story in ways beyond your comprehension."
+        },
+        {
+          "type": "wait",
+          "duration": 4
+        },
+        {
+          "type": "bot",
+          "bot": "At points you may want to give up at others the adrenaline will keep you on our nerves."
+        },
+        {
+          "type": "wait",
+          "duration": 4
+        },
+        {
+          "type": "bot",
+          "bot": "This is a game of choices, are you ready to jump in?"
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "user_wait"
         },
         {
           "type": "chooser",
@@ -28,6 +63,9 @@
     },
     {
       "operations": [
+        {
+          "type": "separator"
+        },
         {
           "type": "bot",
           "bot": "Nirav Modi was a corporate slave, stuck in the monotonous loop of a 9-5 job. Your classic case of Eat-Sleep-Work repeat. But he wasn’t your average engineer, with a degree from IIT and an outstanding academic record he was stuck with an underpaid overworked job."

@@ -6,7 +6,6 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
@@ -41,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
 	private static int story_index;
 	private static int operation_index;
 	private static JSONArray current_operations;
+
+	private Boolean DEBUG = true;
+
 	private View.OnClickListener sendMessage = new View.OnClickListener() {
 		@Override
 		public void onClick(View v) {
@@ -161,32 +163,90 @@ public class MainActivity extends AppCompatActivity {
 				Message message = new Message();
 				message.setMessage(operation.optString("bot"));
 				message.setBot(true);
+				String character = operation.optString("character");
+				if(character != null){
+					message.setCharacter_name(character);
+					switch (character){
+						case "fop":
+							// TODO: 26-08-2019 set header here
+							message.setCharacter_pic(R.mipmap.fop);
+							break;
+//						case "anita":
+//							message.setCharacter_pic(R.mipmap.anita);
+					}
+				}
 				messageList.add(message);
 				adapter.notifyItemInserted(messageList.size()-1);
 				chatView.scrollToPosition(messageList.size()-1);
+
+				if(operation.has("wait")){
+					CountDownTimer timer = new CountDownTimer(operation.optInt("wait")*1000, 1000) {
+						@Override
+						public void onTick(long millisUntilFinished) {
+							
+						}
+
+						@Override
+						public void onFinish() {
+							operation_index++;
+							while (executeOperation()) {
+								operation_index++;
+								if (operation_index == current_operations.length()) {
+									Toast.makeText(MainActivity.this, "Story completed", Toast.LENGTH_SHORT).show();
+									break;
+								}
+							}
+						}
+					};
+					timer.start();
+					return false;
+				}
 				return true;
 			case "wait":
 				Integer wait = operation.optInt("duration");
-				CountDownTimer timer = new CountDownTimer(wait*1000, 1000) {
-					@Override
-					public void onTick(long millisUntilFinished) {
+				if(!DEBUG) {
+					CountDownTimer timer = new CountDownTimer(wait * 1000, 1000) {
+						@Override
+						public void onTick(long millisUntilFinished) {
 
-					}
-
-					@Override
-					public void onFinish() {
-						operation_index++;
-						while(executeOperation()){
-							operation_index++;
-							if(operation_index == current_operations.length()) {
-								Toast.makeText(MainActivity.this, "Story completed", Toast.LENGTH_SHORT).show();
-								break;
-							}
 						}
 
-					}
-				};
-				timer.start();
+						@Override
+						public void onFinish() {
+							operation_index++;
+							while (executeOperation()) {
+								operation_index++;
+								if (operation_index == current_operations.length()) {
+									Toast.makeText(MainActivity.this, "Story completed", Toast.LENGTH_SHORT).show();
+									break;
+								}
+							}
+
+						}
+					};
+					timer.start();
+				}else{
+					CountDownTimer timer = new CountDownTimer(1000, 1000) {
+						@Override
+						public void onTick(long millisUntilFinished) {
+
+						}
+
+						@Override
+						public void onFinish() {
+							operation_index++;
+							while (executeOperation()) {
+								operation_index++;
+								if (operation_index == current_operations.length()) {
+									Toast.makeText(MainActivity.this, "Story completed", Toast.LENGTH_SHORT).show();
+									break;
+								}
+							}
+
+						}
+					};
+					timer.start();
+				}
 				return false;
 			case "jump":
 				story_index = operation.optInt("index");
@@ -219,8 +279,26 @@ public class MainActivity extends AppCompatActivity {
 				sendButton.setVisibility(View.GONE);
 
 				return false;
-			case "chooser":
 
+			case "user":
+				Message message1 = new Message();
+				message1.setMessage(operation.optString("user"));
+				message1.setBot(false);
+				messageList.add(message1);
+				adapter.notifyItemInserted(messageList.size()-1);
+				chatView.scrollToPosition(messageList.size()-1);
+				return true;
+
+			case "separator":
+				Message message2 = new Message();
+				message2.setSeparator(true);
+				message2.setBot(false);
+				messageList.add(message2);
+				adapter.notifyItemInserted(messageList.size()-1);
+				chatView.scrollToPosition(messageList.size()-1);
+				return true;
+
+			case "chooser":
 				Bundle bundle = new Bundle();
 				bundle.putString("prompt", operation.optString("prompt"));
 				JSONArray options = operation.optJSONArray("options");
