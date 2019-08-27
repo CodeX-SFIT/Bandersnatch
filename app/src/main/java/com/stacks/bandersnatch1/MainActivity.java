@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
 	CardView cameraButton;
 	EditText txtInput;
 	TextView btnContinue;
+
+	public static final String TAG = "MainActivity";
 
 	private static JSONArray stories;
 
@@ -87,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 		btnContinue = findViewById(R.id.btnContinue);
 
 		try {
-			stories = new JSONObject(AssetJSONFile("scripts/BANDERSNATCH.json")).getJSONArray("story");
+			stories = new JSONObject(AssetJSONFile("scripts/draft1.json")).getJSONArray("story");
 		} catch (JSONException e) {
 			e.printStackTrace();
 		} catch (IOException e){
@@ -128,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 	void startStory(){
+		Log.d(TAG, "startStory: ");
 		messageList.clear();
 		adapter.notifyDataSetChanged();
 		story_index = 0;
@@ -135,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	private synchronized void executeStory(){
+		Log.d(TAG, "executeStory: " + story_index);
 		current_operations = stories.optJSONObject(story_index).optJSONArray("operations");
 		operation_index = 0;
 		while(executeOperation()){
@@ -147,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	private void nextStory(){
+		Log.d(TAG, "nextStory: " + story_index);
 		if(story_index == stories.length()){
 			Toast.makeText(this, "All stories completed", Toast.LENGTH_SHORT).show();
 		}else{
@@ -157,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
 	private boolean executeOperation(){
 		JSONObject operation = current_operations.optJSONObject(operation_index);
 		String type = operation.optString("type");
-
+		Log.d(TAG, "executeOperation: " + story_index + " " + operation_index + " " + type);
 		switch (type){
 			case "bot":
 				Message message = new Message();
@@ -309,6 +315,16 @@ public class MainActivity extends AppCompatActivity {
 				startActivityForResult(intent1, 100);
 
 				return false;
+
+			case "image":
+				Message message3 = new Message();
+//				switch (operation.optString("image")){
+//					// TODO: 27-08-2019
+//				}
+				message3.setImage(R.mipmap.ic_launcher);
+				messageList.add(message3);
+				adapter.notifyItemInserted(messageList.size()-1);
+				chatView.scrollToPosition(messageList.size()-1);
 		}
 		return false;
 	}

@@ -9,6 +9,7 @@ public class Message {
 	String character_name;
 	Integer character_pic = -1;
 	Boolean isSeparator = false;
+	Integer image = -1;
 
 
 	public Date getTime() {
@@ -57,5 +58,13 @@ public class Message {
 
 	public void setSeparator(Boolean separator) {
 		isSeparator = separator;
+	}
+
+	public Integer getImage() {
+		return image;
+	}
+
+	public void setImage(Integer image) {
+		this.image = image;
 	}
 }

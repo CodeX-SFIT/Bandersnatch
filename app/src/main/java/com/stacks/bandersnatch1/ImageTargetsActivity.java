@@ -116,7 +116,8 @@ public class ImageTargetsActivity extends SampleActivityBase implements SampleAp
 
 		startLoadingAnimation();
 //		mDatasetStrings.add("HDD.xml");
-		mDatasetStrings.add("StonesAndChips.xml");
+//		mDatasetStrings.add("StonesAndChips.xml");
+		mDatasetStrings.add("Bandersnatch.xml");
 //		mDatasetStrings.add("Tarmac.xml");
 
 		vuforiaAppSession

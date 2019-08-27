@@ -131,11 +131,11 @@
         },
         {
           "type": "wait",
-          "durtion": 2
+          "duration": 2
         },
         {
           "type": "ar",
-          "looking_for": " BROCHURE"
+          "looking_for": "2"
         },
         {
           "type": "jump",

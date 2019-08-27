@@ -1,0 +1,1528 @@
+{
+  "story": 
+  [
+    {
+      "operations": 
+      [
+        {
+          "type": "bot",
+          "bot": "Welcome to Bandersnatch."
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "bot",
+          "bot": "This game will test your reasoning and logical abilities."
+        },
+        {
+          "type": "wait",
+          "duration": 3
+        },
+        {
+          "type": "bot",
+          "bot": "Every choice you make impacts the story in ways beyond your comprehension."
+        },
+        {
+          "type": "wait",
+          "duration": 4
+        },
+        {
+          "type": "bot",
+          "bot": "At points you may want to give up at others the adrenaline will keep you on our nerves."
+        },
+        {
+          "type": "wait",
+          "duration": 5
+        },
+        {
+          "type": "bot",
+          "bot": "This is a game of choices, are you ready to jump in?"
+        },
+        {
+          "type": "user_wait"
+        },
+        {
+          "type": "chooser",
+          "prompt": "Are you ready to make your first choice?",
+          "options": 
+          [
+            {
+              "text": "YES",
+              "index": 1
+            },
+            {
+              "text": "NO",
+              "index": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operations": 
+      [
+        {
+          "type": "bot",
+          "bot": "Nirav Modi was a corporate slave, stuck in the monotonous loop of a 9-5 job. Your classic case of Eat-Sleep-Work repeat. But he wasn’t your average engineer, with a degree from IIT and an outstanding academic record he was stuck with an underpaid overworked job."
+        },
+        {
+          "type":"user_wait"
+        },
+        {
+          "type": "bot",
+          "bot": "Nirav was fed up of this monotony and to stick it to the system he planned a heist. He got like minded fellow engineers and robbed 500 million Dollars from PCB national bank.You are the Chief Investigating officer on the case. You’ve nabbed all of his associates andyou’re your after Nirav."
+        },
+        {
+          "type": "user_wait"
+        },
+        {
+          "type": "bot",
+          "bot": "Some hints before you begin:Nirav is :-Superhero comic nerd Quentin Tarantino fan Coding enthusiast",
+          "wait":4
+        },
+        {
+          "type": "jump",
+          "index": 2
+        }
+      ]
+    },
+    {
+      "_comment": "index 2 at niravs residence",
+      "operations": 
+      [
+        {
+          "type": "bot",
+          "bot": "We are at Niravs Residence Searching for some clues."
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "bot",
+          "bot": "Looks like we’ve found a brochure and a letter."
+        },
+        {
+          "type": "chooser",
+          "prompt": "Which clue will you choose?",
+          "options": 
+          [
+            {
+              "text": "BROCHURE",
+              "index": 3
+            },
+            {
+              "text": "LETTER",
+              "index": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment": "brochure",
+      "operations": 
+      [
+        {
+          "type": "bot",
+          "bot": "On examining the brochure, you see that further details are located at the workshop.",
+          "wait": 2
+        },
+        {
+          "type": "bot",
+          "bot": "Go to the workshop and scan the area for the clue."
+        },
+        {
+          "type": "wait",
+          "durtion": 2
+        },
+        {
+          "type": "ar",
+          "looking_for": "workshop"
+        },
+        {
+          "type": "jump",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "_comment": "letter index 4",
+      "operations": 
+      [
+        {
+          "type": "bot",
+          "bot": "The letter:",
+          "wait":1
+        },
+        {
+          "type": "bot",
+          "bot": "My dear annie, I’m heading out to Phi Phi. The heist was successful but my associates have been caught. It’s upto me to flee with the money. I don’t know when I’ll find you but we’ll meet soon in Phi Phi. Till then I love you, stay safe. -NM"
+        },
+        {
+          "type": "user_wait"
+        },
+        {
+          "type": "jump",
+          "index": 5
+        }
+      ]
+    },
+    {
+      "_coment": "index 5 decision between phuket and bangkok",
+      "operations": 
+      [
+        {
+          "type": "bot",
+          "bot": "Looks like we’re going to Phi Phi islands then. Where should I book a flight to?"
+        },
+        {
+          "type": "chooser",
+          "prompt": "Book a flight to Phuket or Bangkok?",
+          "options": 
+          [
+            {
+              "text": "PHUKET",
+              "index": 6
+            },
+            {
+              "text": "BANGKOK",
+              "index": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment": "index 6 is phuket",
+      "operations": 
+      [
+        {
+          "type": "bot",
+          "character": "Front Office Personal",
+          "bot": "Hello Sir, How may I help you?"
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "user",
+          "user": "Hello I am Detective from RAW. We’re looking for Nirav Modi. Our intelligence says he’s stationed here."
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "bot",
+          "character": "Front Office Personal",
+          "bot": "I’m sorry sir but Nirav Modi checked out a couple of days ago but his Girlfriend is still here in room number 404."
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "user",
+          "user": "Thanks."
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "bot",
+          "bot": "Rush to room 404. Be fast or she will run away !!"
+        },
+        {
+          "type": "wait",
+          "duration": 4
+        },
+        {
+          "type": "bot",
+          "bot": "Hurry up Detective. Room 404 is not far."
+        },
+        {
+          "type": "user_wait"
+        },
+        {
+          "type": "ar",
+          "looking_for": "room_404"
+        },
+        {
+          "type": "wait",
+          "duration": 5
+        },
+        {
+          "type": "bot",
+          "bot": "Looks like we have caught her"
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "bot",
+          "character": "annie",
+          "bot": "Whats the meaning of this?"
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "user",
+          "user": "Where is Nirav?"
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "bot",
+          "character": "annie",
+          "bot": "I don’t know anything. Let me go.He left me here 2 days ago saying I’d be safe."
+        },
+        {
+          "type": "duration",
+          "duration": 2
+        },
+        {
+          "type": "user",
+          "user": "Clearly you aren’t! Tell us where he is or you’ll be sentenced as his associate."
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "bot",
+          "character": "annie",
+          "bot": "Seriously I don’t know. All I remember is that he was saying he was going to convert all the money into the strongest currency."
+        },
+        {
+          "type": "wait",
+          "duration": "2"
+        },
+        {
+          "type": "bot",
+          "bot": "Looks like this information is useful! Let move fast. She doesn’t seem to have any information"
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
+          "type": "user",
+          "bot": "Which is the strongest currecy"
+        },
+        {
+          "type": "chooser",
+          "prompt": "Which currency is stronger?",
+          "options": 
+          [
+            {
+              "text": "KUWAIT'S",
+              "index": 8
+            },
+            {
+              "text": "ENGLAND'S",
+              "index": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment": "index 7 is bangkok",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "character":"Front Office Personal",
+          "bot":"Hello Sir, how may i help you?"
+        },
+        {
+          "type":"wait",
+          "duration":2
+        },
+        {
+          "type":"user",
+          "user":"Hello I am a Detective from RAW. We’re looking for Nirav Modi. Our intelligence says he’s stationed here."
+        },
+        {
+          "type":"wait",
+          "duration":2
+        },
+        {
+          "type":"bot",
+          "character":"Front Office Personal",
+          "bot":"Nirav Modi checked out a couple of days ago."
+        },
+        {
+          "type":"wait",
+          "duration":2
+        },
+        {
+          "type":"user",
+          "user":"I need access to his room"
+        },
+        {
+          "type":"wait",
+          "duration":2
+        },
+        {
+          "type":"bot",
+          "character":"Front Office Personal",
+          "bot":"I’m sorry sir Its against Hotel Policy. I could give you his number though. But it’ll come at a cost."
+        },
+        {
+          "type":"wait",
+          "duration":4
+        },
+        {
+          "type":"chooser",
+          "prompt":"How will you deal with the Front Office Personal?",
+          "options":
+          [
+            {
+              "text":"TERRIFY",
+              "index":10
+            },
+            {
+              "text":"PAY BRIBE",
+              "index":11
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment":"index 8 for kuwait",
+      "operations":
+      [
+        {
+          "type":"user",
+          "user":"Hello. We’re from RAW and are working on the Nirav Modi case."
+        },
+        {
+          "type":"wait",
+          "duration":3
+        },
+        {
+          "type":"bot",
+          "character":"Bank Manager",
+          "bot":"Yes, I was expecting you. We’ve found some suspicious behaviour from that account. Huge amounts of money are being transferred",
+          "wait": 4
+        },
+        {
+          "type":"user",
+          "user":"I need this information."
+        },
+        {
+          "type":"wait",
+          "duration":2
+        },
+        {
+          "type":"bot",
+          "character":"Bank Manager",
+          "bot":"I’m sorry, But I cannot give this data without approval from our board. That may take 4-5 days."
+        },
+        {
+          "type":"wait",
+          "duration":4
+        },
+        {
+          "type":"user",
+          "user":"We’ve got no time. Don’t you understand! You and all your rules get in the way of Justice. What a waste of time."
+        },
+        {
+          "type":"wait",
+          "duration":5
+        },
+        {
+          "type":"bot",
+          "bot":"Sir, I’m getting an incoming message from an informant.",
+          "wait":6
+        },
+        {
+          "type":"bot",
+          "character":"MIB",
+          "bot":"The banks won’t help you. They’re his dogs. Come out and meet me"
+        },
+        {
+          "type":"wait",
+          "durtion":5
+        },
+        {
+          "type":"bot",
+          "character":"MIB",
+          "bot":"Our organization keeps an eye on these criminals. But this Bast*rd Nirav has been tough to follow."
+        },
+        {
+          "type":"wait",
+          "duration":3
+        },
+        {
+          "type":"bot",
+          "character":"MIB",
+          "bot":"Nirav was last spotted outside Cinescape Al-Fanar Theatres by our local team, but our foreign resources say he’s fleed to Sweden."
+        },
+        {
+          "type":"wait",
+          "duration":4
+        },
+        {
+          "type":"bot",
+          "character":"MIB",
+          "bot":"Your call mate. Choose Wisely."
+        },
+        {
+          "type":"wait",
+          "duration":2
+        },
+        {
+          "type":"chooser",
+          "prompt":"Choose wisely",
+          "options":
+          [
+            {
+              "text":"MOVIE",
+              "index":26
+            },
+            {
+              "text":"SWEDEN",
+              "index":27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment":"index 9 for england",
+      "operations":
+      [
+        {
+          "type":"user",
+          "user":"Hello. We’re from RAW and are working on the Nirav Modi case."
+        },
+        {
+          "type":"wait",
+          "duration":5
+        },
+        {
+          "type":"bot",
+          "character":"Bank Manager",
+          "bot":"Yes, I was expecting you. We’ve found some suspicious behaviour from that account. Huge amounts of money are being transferred."
+        },
+        {
+          "type":"user_wait"
+        },
+        {
+          "type":"user",
+          "user":"I need his information",
+          "wait":3
+        },
+        {
+          "type":"bot",
+          "character":"Bank Manager",
+          "bot":"I’m sorry, But I cannot give this data without approval from our board. That may take 4-5 days."
+        },
+        {
+          "type":"wait",
+          "duration":3
+        },
+        {
+          "type":"user",
+          "user":"We’ve got no time. Don’t you understand! You and all your rules get in the way of Justice. What a waste."
+        },
+        {
+          "type":"user_wait"
+        },
+        {
+          "type":"bot",
+          "bot":"Sir, I’m getting an incoming cryptic message:"
+        },
+        {
+          "type": "bot",
+          "bot": "Go to the reading room to decrypt this message."
+        },
+        {
+          "type":"user_wait"
+        },
+        {
+          "type":"ar",
+          "looking_for":"reading_room"
+        },
+        {
+          "type":"bot",
+          "bot":"Hello Detective. You’ve been searching hard and long. Its time to give up or die.Regards from your dearest friend – NM",
+          "wait":6
+        },
+        {
+          "type":"bot",
+          "bot":"I am tracing the origin of this message?",
+          "wait":2
+        },
+        {
+          "type":"bot",
+          "bot":"MESSAGE.....TRACED.......",
+          "wait":2
+        },
+        {
+          "type":"bot",
+          "bot":"The location is SAO PAOLO, BRAZIL"
+        },
+        {
+          "type":"jump",
+          "index":15
+        }
+      ]
+    },
+    {
+      "_comment":"index 10 for terrify(7)",
+      "operations":
+      [
+        {
+          "type":"user",
+          "user":"I wont pay the bribe."
+        },
+        {
+          "type":"bot",
+          "character":"Front Office Personal",
+          "bot":"Then there is nothing I can do sir."
+        },
+        {
+          "type":"wait",
+          "duration":4
+        },
+        {
+          "type":"user",
+          "user":"Looks like your Boss does not know who is sleeping with his wife."
+        },
+        {
+          "type":"wait",
+          "duration":5
+        },
+        {
+          "type":"bot",
+          "character":"Front Office Personal",
+          "bot":"You can't prove anything!"
+        },
+        {
+          "type":"wait",
+          "duration":2
+        },
+        {
+          "type":"user",
+          "user":"Oh I’ve got much more info than this. Are you giving me the number or should I go on?"
+        },
+        {
+          "type":"wait",
+          "duration":4
+        },
+        {
+          "type":"bot",
+          "character":"Front Office Personal",
+          "bot":"Sorry.",
+          "wait": 2
+        },
+        {
+          "type":"jump",
+          "index":12
+        }
+      ]
+    },
+    {
+      "_comment":"index 11 extension of index 7(Pay bribe)",
+      "operations":
+      [
+        {
+          "type":"user",
+          "user":"Here is the money, now give me his number."
+        },
+        {
+          "type":"wait",
+          "duration":5
+        },
+        {
+          "type":"jump",
+          "index":12
+        }
+      ]
+    },
+    {
+      "_comment":"index 12:decision to be made of trace phone or continue searching bangkok",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "character":"Front Office Personal",
+          "bot":"Here you go sir"
+        },
+        {
+          "type":"wait",
+          "duration":3
+        },
+        {
+          "type":"bot",
+          "bot":"Lets move ahead",
+          "wait":5
+        },
+        {
+          "type":"chooser",
+          "prompt":"How would you like to continue the investigation??",
+          "options":
+          [
+            {
+              "text":"TRACE PHONE",
+              "index":13
+            },
+            {
+              "text":"SEARCH ACROSS CITY",
+              "index":14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment":"index 13:trace phone",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "bot":"You have chosen to trace the number.",
+          "wait":3
+        },
+        {
+          "type":"bot",
+          "bot":"Last signal came from Kuwait.",
+          "wait":3
+        },
+        {
+          "type":"chooser",
+          "prompt":"How will you proceed?",
+          "options":
+          [
+            {
+              "text":"GO TO KUWAIT",
+              "index":8
+            },
+            {
+              "text":"CONTINUE THE SEARCH IN BANGKOK",
+              "index":14
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment":"index 14:searching in bangkok",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "bot":"You have chosen to continue the search.",
+          "wait":3
+        },
+        {
+          "type":"bot",
+          "bot":"It’s been a week Detective no leads.",
+          "wait":2
+        },
+        {
+          "type":"bot",
+          "bot":"I believe we should move on! Intelligence from Interpol suggests Nirav may be in Brazil or Vegas.",
+          "wait":3
+        },
+        {
+          "type":"chooser",
+          "prompt":"Which country will you proceed to?",
+          "options":
+          [
+            {
+              "text":"BRAZIL",
+              "index":15
+            },
+            {
+              "text":"VEGAS",
+              "index":16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment":"index 15 is brazil",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "character":"Brazilian Officer",
+          "bot":"Hello Detective, our intel says that Nirav Modi had made an alliance with the dangerous Los Pollos Hermanos Cartel.",
+          "wait":5
+        },
+        {
+          "type":"bot",
+          "character":"Brazilian Officer",
+          "bot":"Later he had a falling out with them and fled into the Amazon Forest.",
+          "wait":4
+        },
+        {
+          "type":"chooser",
+          "prompt":"Where do you think Nirav is?",
+          "options":
+          [
+            {
+              "text":"AMAZON FOREST",
+              "index":17
+            },
+            {
+              "text":"LOS POLLOS HERMANOS CARTEL",
+              "index":18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment":"index 16 this is vegas",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "bot":"Before landing I got details of Indians who landed in Vegas.",
+          "wait": 3
+        },
+        {
+          "type": "bot",
+          "bot": "The details are located at the canteen."
+        },
+        {
+          "type":"user_wait"
+        },
+        {
+          "type":"ar",
+          "looking_for":"canteen"
+        },
+        {
+          "type":"bot",
+          "bot":"Nirav's name is on the list. He’s at Caesers Palace.",
+          "wait":3
+        },
+        {
+          "type":"bot",
+          "bot":"Go to Caesar's Palce"
+        },
+        {
+          "type":"user_wait"
+        },
+        {
+          "type":"bot",
+          "bot":"RAW has rented a room for us here. Lets try to hack into their framework here and get info on Nirav.",
+          "wait": 4
+        },
+        {
+          "type":"bot",
+          "bot": "The hacking script is at the Xerox centre.",
+          "wait": 3
+        },
+        {
+          "type":"ar",
+          "looking_for":"xerox_centre"
+        },
+        {
+          "type":"bot",
+          "bot":"Looks like we got an IP. It looks like its from North Korea.",
+          "wait":4
+        },
+        {
+          "type":"bot",
+          "bot":"RAW could get us into North Korea but its dangerous business. Do you want to go?",
+          "wait":5
+        },
+        {
+          "type":"chooser",
+          "prompt":"Are you up for some danger?",
+          "options":
+          [
+            {
+              "text":"GO TO NORTH KOREA",
+              "index":19
+            },
+            {
+              "text":"CONTINUE YOUR SEARCH IN VEGAS",
+              "index":20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment":"index 17:is of amazon",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "bot":"Detective its been a long time all we have found is this mask.",
+          "wait":3
+        },
+        {
+          "type": "image",
+          "image_id": "mask"
+        },
+        {
+          "type":"bot",
+          "bot":"Lets track down these tribals",
+          "wait":5
+        },
+        {
+          "type":"bot",
+          "bot":"Looks like these tribes are performing a sacrificial ceremony. Damnit!!,looks like we better flee.",
+          "wait":5
+        },
+        {
+          "type":"image",
+          "image_id": "ring"
+        },
+        {
+          "type":"bot",
+          "bot":"Wait.That looks like Nirav modi’s ring. He wouldn’t let these tribals take it off him.",
+          "wait":4
+        },
+        {
+          "type":"bot",
+          "bot":"He is most certainly dead..",
+          "wait":3
+        },
+        {
+          "type":"chooser",
+          "prompt":"Do you assume is he dead?",
+          "options":
+          [
+            {
+              "text":"YES",
+              "index":21
+            },
+            {
+              "text":"NO",
+              "index":22
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment":"index 18 Los Pollos Hermanos Cartel",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "bot":"We’ve been searching for this Los Pollos Cartel for weeks now.",
+          "wait":3
+        },
+        {
+          "type":"bot",
+          "bot":"Looks like the Brazilian Officer gave us wrong tip."
+        },
+        {
+          "type":"user_wait"
+        },
+        {
+          "type":"bot",
+          "bot":"Incoming Message:Interpol spotted Nirav at Poland Airport.",
+          "wait":3
+        },
+        {
+          "type":"chooser",
+          "prompt":"Do you wish to persue further or end the game",
+          "options":
+          [
+            {
+              "text":"Fly to Poland",
+              "index":25
+            },
+            {
+              "text":"End the Game",
+              "index":21
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment":"index 19 is NORTH KOREA FROM 16",
+      "operations":
+      [
+        {
+          "type": "image",
+          "image_id": "supreme_leader"
+        },
+        {
+          "type":"bot",
+          "character":"Supreme Leader",
+          "bot":"Wrong Choice M*thaf*cker. You’re dead!"
+        },
+        {
+          "type":"user_wait"
+        },
+        {
+          "type":"jump",
+          "index":21
+        }
+      ]
+    },
+    {
+      "_coment":"index 20 is searching in vegas only from 16",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "bot":"You are at Caesers Palace",
+          "wait":2
+        },
+        {
+          "type":"bot",
+          "bot":"Its been a month Detective. No leads.",
+          "wait":"3"
+        },
+        {
+          "type":"user",
+          "user":"I do not know what to do. No leads, No clues. Time to go back to Bombay. Damnit. This M*therF*ckers gonna pay!"
+        },
+        {
+          "type":"user_wait"
+        },
+        {
+          "type":"bot",
+          "character":"Anonymous",
+          "bot":"Hello Old friend. Here is a gift from the universe.",
+          "wait":3
+        },
+        {
+          "type":"bot",
+          "character":"Anonymous",
+          "bot":"We recieved this picture of Nirav Modi.",
+          "wait":3
+        },
+        {
+          "type": "image",
+          "image_id": "nirav_flag"
+        },
+        {
+          "type":"bot",
+          "bot":"Looks like the universe is on our side Detective. All we have to do is find out which country that flag belongs to.",
+          "wait":6
+        },
+        {
+          "type":"user",
+          "user":"Yes lets nab this son of a b*tch."
+        },
+        {
+          "type":"wait",
+          "duration":2
+        },
+        {
+          "type":"chooser",
+          "prompt":"Which country does that flag belong to?",
+          "options":
+          [
+            {
+              "text":"POLAND",
+              "index":25
+            },
+            {
+              "text":"SWEDEN",
+              "index":27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment":"index 21 from 17",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "bot":"Well we tried. We were so close.",
+          "wait":3
+        },
+        {
+          "type":"bot",
+          "bot":"Maybe we made some bad decisions maybe the odds were against us.",
+          "wait":3
+        },
+        {
+          "type":"bot",
+          "bot":"I wish we could start again and catch that son of a b*tch."
+        },
+        {
+          "type":"user_wait"
+        },
+        {
+          "type":"chooser",
+          "prompt":"Would you like to start again?",
+          "options":
+          [
+            {
+              "text":"YES",
+              "index":23
+            },
+            {
+              "text":"NO",
+              "index":24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment":"index 22 from index 17(amazon)",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "bot":"Incoming message from RAW:",
+          "wait":2
+        },
+        {
+          "type":"bot",
+          "bot":"Interpol has managed to find Nirav Modi in Dubai. Looks like you failed to catch him. Get back to mumbai asap."
+        },
+        {
+          "type":"user_wait"
+        },
+        {
+          "type":"jump",
+          "index":21
+        }
+      ]
+    },
+    {
+      "_comment":"index 23 from 21",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "bot":"Meet CodeX team in room 411! All Replays are at discounted rates and Ofcourse the Bumper Prize awaits you!!"
+        }
+      ]
+    },
+    {
+      "_comment":"index 24  from 21 ::Play credits",
+       "operations":
+      [
+        {
+          "type":"bot",
+          "bot": "You have reached the end of Bandersnatch by Code-X.",
+          "wait":3
+        }
+      ]
+    },
+    {
+      "_comment":"index 25 for poland",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "bot":"I hope the Polish police have lead us to the correct place. Looks like the local Mafia has ruined the place."
+        },
+        {
+          "type":"user_wait"
+        },
+        {
+          "type":"bot",
+          "character":"Mafia Thug",
+          "bot":"What are you here for you suka?",
+          "wait":2
+        },
+        {
+          "type":"user",
+          "user":"Here to meet Dominov!"
+        },
+        {
+          "type":"wait",
+          "duration":2
+        },
+        {
+          "type":"bot",
+          "character":"Mafia Thug",
+          "bot":"Balls you suka. Balls you’re gonna meet Don Domi.",
+          "wait":3
+        },
+        {
+          "type":"chooser",
+          "prompt":"Will you shoot him or will you run?",
+          "options":
+          [
+            {
+              "text":"SHOOT HIM",
+              "index":28
+            },
+            {
+              "text":"RUN",
+              "index":28
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment":"index 26 for movie from index 8(Kuwait)",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "bot":"You are at Cinescope Al-Fanar Theatre",
+          "wait":2
+        },
+        {
+          "type":"bot",
+          "bot":"There are 2 movies playing.We know Nirav is a Tarantino Fan.",
+          "wait":2
+        },
+        {
+          "type":"chooser",
+          "prompt":"Which movie will you check out?",
+          "options":
+          [
+            {
+              "text":"Once upon a time in Mexico",
+              "index":33
+            },
+            {
+              "text":"Pulp Fiction",
+              "index":34
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment":"index 27 for sweden from index 8",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "bot":"I’m getting some news feed about Nirav Modi. Go to the Physics Lab and scan the area for a clue."
+        },
+        {
+          "type":"ar",
+          "looking_for":"physics_lab"
+        },
+        {
+          "type":"image",
+          "image_id": "nirav_caught"
+        },
+        {
+          "type":"bot",
+          "bot":"Looks like the Sweeds got him before us. Damnit! Well we tried. We were so close."
+        },
+        {
+          "type":"jump",
+          "index":21
+        }
+      ]
+    },
+    {
+      "_comment":"index 28 from index 25(Poland)",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "bot":"Looks like his gang is coming after you.",
+          "wait":3
+        },
+        {
+          "type":"bot",
+          "character":"Dominov",
+          "bot":"So you wanted to meet me eh Suka?",
+          "wait":2
+        },
+        {
+          "type":"user",
+          "user":"Yes"
+        },
+        {
+          "type":"wait",
+          "duration":2
+        },
+        {
+          "type":"bot",
+          "character":"Dominov",
+          "bot":"You want this man?",
+          "wait":2
+        },
+        {
+          "type":"image",
+          "image_id": "nirav"
+        },
+        {
+          "type":"user",
+          "user":"Yes. I need to catch him!"
+        },
+        {
+          "type":"bot",
+          "character":"Dominov",
+          "bot":"He owes us money. Find him. If you find him you can take him or else you will die.",
+          "wait":4
+        },
+        {
+          "type":"chooser",
+          "prompt":"Are you ready???",
+          "options":
+          [
+            {
+              "text":"YES",
+              "index":29
+            },
+            {
+              "text":"NO",
+              "index":30
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment":"index 29 from 28",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "bot":"You have found Nirav at the secret Location.",
+          "wait":3
+        },
+        {
+          "type":"bot",
+          "character":"Nirav",
+          "bot":"Are you Indian ? Please help me. The local mafia has threatened to kill me.",
+          "wait":5
+        },
+        {
+          "type":"user",
+          "user":"Finally found you motherf*cker."
+        },
+        {
+          "type":"wait",
+          "duration":2
+        },
+        {
+          "type":"chooser",
+          "prompt":"What will be Nirav's fate?",
+          "options":
+          [
+            {
+              "text":"SHOOT HIM",
+              "index":31
+            },
+            {
+              "text":"TAKE HIM TO INDIA",
+              "index":32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment":"index 30 from 28(NO)",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "character":"Dominov",
+          "bot":"You’re useless."
+        },
+        {
+          "type":"user_wait"
+        },
+        {
+          "type":"bot",
+          "bot":"Dominov shot you.You are dead",
+          "wait":2
+        },
+        {
+          "type":"jump",
+          "index":21
+        }
+      ]
+    },
+    {
+      "_comment":"index 31 shoot him from index 29",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "bot":"After shooting him you have returned to Mumbai",
+          "wait":3
+        },
+        {
+          "type":"bot",
+          "character":"RAW",
+          "bot":"You were supposed to bring him in alive you fool. Now he’s dead and the money is lost. You’re fired. Get out of here."
+        },
+        {
+          "type":"user_wait"
+        },
+        {
+          "type":"jump",
+          "index":21
+        }
+      ]
+    },
+    {
+      "_comment":"index 32 taken to india from 29",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "character":"RAW",
+          "bot":"Great job officer, We nabbed him finally!"
+        },
+        {
+          "type":"user_wait"
+        },
+        {
+          "type":"bot",
+          "bot":"Congratulations on completing Bandersnatch by CodeX. Kindly goto room 411 to record your completion time. Top winning team get exciting prizes from our sponsors The Souled Store!!"
+        }
+      ]
+    },
+    {
+      "_comment":"index 33 from 26",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "bot":"SEARCHING.............",
+          "wait":4
+        },
+        {
+          "type":"bot",
+          "bot":"He’s not here",
+          "wait":2
+        },
+        {
+          "type":"choser",
+          "prompt":"Check Pulp Fiction theatre?",
+          "options":
+          [
+            {
+              "text":"YES",
+              "index":34
+            },
+            {
+              "text":"YES",
+              "index":34
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment":"index 34 from 26 or 33",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "bot":"Searching.....",
+          "wait":4
+        },
+        {
+          "type":"bot",
+          "bot":"Looks like he just fled the scene..",
+          "wait":2
+        },
+        {
+          "type":"bot",
+          "bot":"Wait looks like we found some evidence.",
+          "wait":2
+        },
+        {
+          "type":"image",
+          "image_id": "painting"
+        },
+        {
+          "type":"bot",
+          "bot":"The painting has the initials -NM",
+          "wait":2
+        },
+        {
+         "type":"bot",
+         "bot":"Looks like he’s visiting these pyramids. Lets Track him."
+        },
+        {
+          "type":"user_wait"
+        },
+        {
+          "type":"chooser",
+          "prompt":"Where should we fly to?",
+          "options":
+          [
+            {
+              "text":"VEGAS",
+              "index":16
+            },
+            {
+              "text":"EGYPT",
+              "index":35
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment":"index 35 is egypt from 34",
+      "operations":
+      [
+        {
+          "type":"bot",
+          "bot":"You are at the Egypt International Airport.",
+          "wait":2
+        },
+        {
+          "type":"bot",
+          "bot":"Egypt Intelligence is an ally to RAW. I’m sure they can help us",
+          "wait":3
+        },
+        {
+          "type":"bot",
+          "character":"Egypt intelligence Officer",
+          "bot":"Hello Detective. I’ve searched for Nirav Modi in our Records but can’t seem to find him. The records are at Chemistry Lab."
+        },
+        {
+          "type":"user_wait"
+        },
+        {
+          "type":"ar",
+          "looking_for":"chem_lab"
+        },
+        {
+          "type":"bot",
+          "bot":"No sign of Nirav Modi. Looks like we’ll never Find him!",
+          "wait":2
+        },
+        {
+         "type":"chooser",
+         "prompt":"Do you have the persistance to continue?",
+         "options":
+         [
+           {
+             "text":"QUIT CASE",
+             "index":21
+           },
+           {
+             "text":"GO TO VEGAS",
+             "index":16
+           }
+         ]
+        }
+      ]
+    }
+  ]
+}

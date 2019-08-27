@@ -30,7 +30,10 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 	@Override
 	public int getItemViewType(int position) {
-		if(messages.get(position).getBot())
+
+		if(messages.get(position).getImage() != -1)
+			return -2;
+		else if(messages.get(position).getBot())
 			return 0;
 		else if(messages.get(position).getSeparator())
 			return -1;
@@ -43,6 +46,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 	@Override
 	public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 		RecyclerView.ViewHolder viewHolder;
+
 		if(viewType == 0){
 			View view = LayoutInflater.from(parent.getContext()).inflate(
 					R.layout.bot_says,
@@ -57,6 +61,13 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 					false
 			);
 			viewHolder = new RecyclerView.ViewHolder(view){};
+		}else if(viewType == -2){
+			View view = LayoutInflater.from(parent.getContext()).inflate(
+					R.layout.bot_image,
+					parent,
+					false
+			);
+			viewHolder = new RecyclerView.ViewHolder(view) {};
 		}else{
 			View view = LayoutInflater.from(parent.getContext()).inflate(
 					R.layout.user_says,
@@ -81,8 +92,37 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 //				);
 //			}
 //		}else{
+
+
 		if(holder.getItemViewType() == -1)
 			return;
+
+		if(holder.getItemViewType() == -2){
+//			if(messages.get(position).getCharacter_pic() != -1){
+//				Glide.with(context)
+//						.load(messages.get(position).getCharacter_pic())
+//						.into((ImageView)holder.itemView.findViewById(R.id.bot_icon));
+//			}
+//			if(position != 0){
+//				if(messages.get(position - 1).getCharacter_name() != null &&
+//						messages.get(position).getCharacter_name() != null) {
+//					if (messages.get(position - 1).getCharacter_name().equals(messages.get(position).getCharacter_name())) {
+//						holder.itemView.findViewById(R.id.icon_container).setVisibility(View.INVISIBLE);
+//					}else{
+//						holder.itemView.findViewById(R.id.icon_container).setVisibility(View.VISIBLE);
+//					}
+//				}else{
+//					holder.itemView.findViewById(R.id.icon_container).setVisibility(View.VISIBLE);
+//				}
+//			}else{
+//				holder.itemView.findViewById(R.id.icon_container).setVisibility(View.VISIBLE);
+//			}
+			Glide.with(context)
+					.load(messages.get(position).getImage())
+					.into((ImageView) holder.itemView.findViewById(R.id.bot_image));
+			return;
+		}
+
 		((android.widget.TextView) holder.itemView.findViewById(R.id.message)).setText(
 				messages.get(position).getMessage()
 		);
