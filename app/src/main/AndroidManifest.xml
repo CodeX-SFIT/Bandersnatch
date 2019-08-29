@@ -2,9 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="com.stacks.bandersnatch1">
 
-
 	<uses-feature android:glEsVersion="0x00020000" />
-
 	<!--
 		 The application requires a camera.
 
@@ -18,26 +16,19 @@
 		 flash, then declare only the android.hardware.camera feature. The
 		 other camera features that you do not request will no longer be
 		 assumed as required.
-	-->
+    -->
 	<uses-feature android:name="android.hardware.camera" />
-
-	<!--
-		Add this permission to get access to the camera.
-	-->
+	<!-- 		Add this permission to get access to the camera. -->
 	<uses-permission android:name="android.permission.CAMERA" />
-
-	<!--
-		Add this permission to allow opening network sockets.
-	-->
-	<uses-permission android:name="android.permission.INTERNET"/>
-
+	<!-- 		Add this permission to allow opening network sockets. -->
+	<uses-permission android:name="android.permission.INTERNET" />
 	<!--
 		Add this permission to check which network access properties (e.g.
 		active type: 3G/WiFi).
-	 -->
+    -->
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
 
 	<application
 		android:allowBackup="true"
@@ -46,29 +37,42 @@
 		android:roundIcon="@mipmap/ic_launcher_round"
 		android:supportsRtl="true"
 		android:theme="@style/AppTheme">
-		<!--<activity android:name=".ImageTargetsActivity"></activity>-->
-		<activity android:name=".ChooserActivity" />
-		<activity android:name=".MainActivity">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
+		<activity android:name=".StarterActivity">
 
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
+			 <intent-filter>
+			 <action android:name="android.intent.action.MAIN" />
+
+
+			 <category android:name="android.intent.category.LAUNCHER" />
+			 </intent-filter>
 		</activity>
-
+		<!-- <activity android:name=".ImageTargetsActivity"></activity> -->
 		<activity
-			android:name=".ImageTargetsActivity"
-			android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
-			android:theme="@style/SampleAppsTheme"
-			android:launchMode="singleTask"
-			>
+			android:name=".ChooserActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name=".MainActivity"
+			android:screenOrientation="portrait">
 			<!--<intent-filter>-->
 				<!--<action android:name="android.intent.action.MAIN" />-->
 
 				<!--<category android:name="android.intent.category.LAUNCHER" />-->
 			<!--</intent-filter>-->
 		</activity>
+		<activity
+			android:name=".ImageTargetsActivity"
+			android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
+			android:launchMode="singleTask"
+			android:screenOrientation="portrait"
+			android:theme="@style/SampleAppsTheme">
 
+			<!-- <intent-filter> -->
+			<!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+			<!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+			<!-- </intent-filter> -->
+		</activity>
 	</application>
 
 </manifest>

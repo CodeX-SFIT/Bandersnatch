@@ -45,6 +45,7 @@
 				android:layout_marginBottom="5dp"
 				android:layout_toEndOf="@+id/header_icon_continer"
 				android:text="The Bot"
+				android:id="@+id/name"
 				android:textSize="20sp"
 				android:textStyle="bold" />
 		</RelativeLayout>
@@ -78,21 +79,22 @@
 			<!--android:layout_centerHorizontal="true"-->
 			<!--android:background="#006600"/>-->
 
-		<EditText
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:minLines="1"
-			android:minHeight="40dp"
-			android:maxLines="3"
-			android:id="@+id/input_message"
-			android:layout_alignParentStart="true"
-			android:layout_toStartOf="@id/send_container"
-			android:layout_centerVertical="true"
-			android:hint="Type your message here..."
-			android:elevation="15dp"
-			android:background="@drawable/shadow_bg"
-			android:padding="4dp"
-			android:layout_margin="5dp"/>
+		<!--<EditText-->
+			<!--android:layout_width="match_parent"-->
+			<!--android:layout_height="wrap_content"-->
+			<!--android:minLines="1"-->
+			<!--android:minHeight="40dp"-->
+			<!--android:maxLines="3"-->
+			<!--android:visibility="gone"-->
+			<!--android:id="@+id/input_message"-->
+			<!--android:layout_alignParentStart="true"-->
+			<!--android:layout_toStartOf="@id/send_container"-->
+			<!--android:layout_centerVertical="true"-->
+			<!--android:hint="Type your message here..."-->
+			<!--android:elevation="15dp"-->
+			<!--android:background="@drawable/shadow_bg"-->
+			<!--android:padding="4dp"-->
+			<!--android:layout_margin="5dp"/>-->
 
 		<androidx.cardview.widget.CardView
 			android:id="@+id/send_container"

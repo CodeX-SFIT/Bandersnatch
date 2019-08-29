@@ -8,6 +8,7 @@
 		<item name="colorAccent">@color/colorAccent</item>
 		<item name="android:fontFamily">@font/engcarnation_demo</item>
 		<item name="android:textSize">16sp</item>
+		<item name="android:letterSpacing">0.2</item>
 	</style>
 	<style name="SampleAppsTheme" parent="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
 		<item name="android:windowNoTitle">true</item>

@@ -102,7 +102,8 @@
         },
         {
           "type": "bot",
-          "bot": "Looks like we’ve found a brochure and a letter."
+          "bot": "Looks like we’ve found a brochure and a letter.",
+          "wait": 2
         },
         {
           "type": "chooser",
@@ -136,7 +137,7 @@
         },
         {
           "type": "wait",
-          "duration": 2
+          "dduration": 2
         },
         {
           "type": "ar",
@@ -155,7 +156,7 @@
         {
           "type": "bot",
           "bot": "The letter:",
-          "wait":1
+          "wait":2
         },
         {
           "type": "bot",
@@ -176,7 +177,8 @@
       [
         {
           "type": "bot",
-          "bot": "Looks like we’re going to Phi Phi islands then. Where should I book a flight to?"
+          "bot": "Looks like we’re going to Phi Phi islands then. Where should I book a flight to?",
+          "wait": 3
         },
         {
           "type": "chooser",
@@ -384,6 +386,24 @@
           "duration":4
         },
         {
+          "type":"bot",
+          "bot":"There may some dirt on the Personnel in room 404! Go there and uncover it."
+        },
+        {
+          "type":"user_wait"
+        },
+        {
+          "type":"ar",
+          "looking_for":"room_404"
+        },
+        {
+          "type":"bot",
+          "bot":"You have found some information but it may not be true."
+        },
+        {
+          "type":"user_wait"
+        },
+        {
           "type":"chooser",
           "prompt":"How will you deal with the Front Office Personal?",
           "options":
@@ -455,7 +475,7 @@
         },
         {
           "type":"wait",
-          "durtion":5
+          "dduration":5
         },
         {
           "type":"bot",
@@ -646,7 +666,7 @@
         },
         {
           "type":"wait",
-          "duration":5
+          "duration":3
         },
         {
           "type":"jump",
@@ -761,6 +781,19 @@
       "operations":
       [
         {
+          "type":"image",
+          "image_id": "sfit_logo"
+        },
+        {
+          "type":"bot",
+          "bot":"This logo will lead us to the Brazillian Police office. Find it.",
+          "wait":3
+        },
+        {
+          "type":"ar",
+          "looking_for":"sfit_logo"
+        },
+        {
           "type":"bot",
           "character":"Brazilian Officer",
           "bot":"Hello Detective, our intel says that Nirav Modi had made an alliance with the dangerous Los Pollos Hermanos Cartel.",
@@ -769,7 +802,7 @@
         {
           "type":"bot",
           "character":"Brazilian Officer",
-          "bot":"Later he had a falling out with them and fled into the Amazon Forest.",
+          "bot":"Rumour has it that he had a falling out with them and fled into the Amazon Forest.",
           "wait":4
         },
         {
@@ -882,6 +915,17 @@
         },
         {
           "type":"bot",
+          "bot":"The villagers on the SFIT gate painting should lead us to the tribals."
+        },
+        {
+          "type":"user_wait"
+        },
+        {
+          "type":"ar",
+          "looking_for":"gate_painting"
+        },
+        {
+          "type":"bot",
           "bot":"Looks like these tribes are performing a sacrificial ceremony. Damnit!!,looks like we better flee.",
           "wait":5
         },
@@ -936,6 +980,15 @@
           "type":"bot",
           "bot":"Incoming Message:Interpol spotted Nirav at Poland Airport.",
           "wait":3
+        },
+        {
+          "type":"bot",
+          "bot":"Locate CODEX near the time capsule to decrypt this message!",
+          "wait":3
+        },
+        {
+          "type":"ar",
+          "looking_for":"codex"
         },
         {
           "type":"chooser",
@@ -1152,7 +1205,7 @@
         {
           "type":"bot",
           "character":"Mafia Thug",
-          "bot":"Balls you suka. Balls you’re gonna meet Don Domi.",
+          "bot":"Balls you suka. Balls you’re gonna meet Don Domi!!",
           "wait":3
         },
         {
@@ -1273,6 +1326,24 @@
           "wait":4
         },
         {
+          "type":"bot",
+          "bot":"The Foundation stone of the new building may help us find him!"
+        },
+        {
+          "type":"user_wait"
+        },
+        {
+          "type":"ar",
+          "looking_for":"foundation_stone"
+        },
+        {
+          "type":"bot",
+          "bot":"The secret location is known. This could be dangerous!"
+        },
+        {
+          "type":"user_wait"
+        },
+        {
           "type":"chooser",
           "prompt":"Are you ready???",
           "options":
@@ -1295,8 +1366,24 @@
       [
         {
           "type":"bot",
-          "bot":"You have found Nirav at the secret Location.",
+          "bot":"You are at the secret Location.",
           "wait":3
+        },
+        {
+          "type":"bot",
+          "bot":"To access the door you need to find this image.",
+          "wait":2
+        },
+        {
+          "type":"image",
+          "image_id":"mosaic"
+        },
+        {
+          "type":"user_wait"
+        },
+        {
+          "type":"ar",
+          "looking_for":"mosaic"
         },
         {
           "type":"bot",
@@ -1343,7 +1430,7 @@
         },
         {
           "type":"bot",
-          "bot":"Dominov shot you.You are dead",
+          "bot":"Dominov shot you! You are dead",
           "wait":2
         },
         {

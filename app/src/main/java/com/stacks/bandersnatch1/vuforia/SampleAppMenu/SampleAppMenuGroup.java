@@ -176,7 +176,7 @@ public class SampleAppMenuGroup
             newTextView.setBackgroundDrawable(selectorDrawable);
         
         newTextView.setTypeface(mFont);
-        newTextView.setTextSize(mEntriesTextSize);
+//        newTextView.setTextSize(mEntriesTextSize);
         newTextView.setTag(command);
         newTextView.setVisibility(View.VISIBLE);
         newTextView.setPadding(mEntriesSidesPadding, mEntriesUpDownPadding,

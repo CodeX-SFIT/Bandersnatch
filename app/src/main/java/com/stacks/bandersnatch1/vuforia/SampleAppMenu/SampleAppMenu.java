@@ -91,11 +91,10 @@ public class SampleAppMenu
         parentView.addView(mParentMenuView);
         
         mMovableListView = mParentMenuView.findViewById(R.id.settings_menu);
-        mMovableListView.setBackgroundColor(Color.WHITE);
-        
+
         TextView title = mParentMenuView.findViewById(R.id.settings_menu_title);
-        title.setText(menuTitle);
-        
+        title.setVisibility(View.GONE);
+
         mMovableView.setVisibility(View.VISIBLE);
         
         if (mAdditionalViews != null && mAdditionalViews.size() > 0)
@@ -293,16 +292,16 @@ public class SampleAppMenu
 
     private void setFooter()
     {
-        String vuforiaVersion = mActivityRef.get().getString(R.string.version_vuforia)
-                + Vuforia.getLibraryVersion();
-        String androidVersion = mActivityRef.get().getString(R.string.version_android) + " "
-                + Build.VERSION.SDK;
-
-        // Display Vuforia Engine and Android versions as a clickable text item in the menu.
-        // The value -999 is used to not interfere with user-defined commands for onClick()
-        SampleAppMenuGroup newGroup = addGroup(mActivityRef.get().getString(R.string.menu_versions), true);
-        newGroup.addTextItem(vuforiaVersion, -999).setClickable(false);
-        newGroup.addTextItem(androidVersion, -999).setClickable(false);
+//        String vuforiaVersion = mActivityRef.get().getString(R.string.version_vuforia)
+//                + Vuforia.getLibraryVersion();
+//        String androidVersion = mActivityRef.get().getString(R.string.version_android) + " "
+//                + Build.VERSION.SDK;
+//
+//        // Display Vuforia Engine and Android versions as a clickable text item in the menu.
+//        // The value -999 is used to not interfere with user-defined commands for onClick()
+//        SampleAppMenuGroup newGroup = addGroup(mActivityRef.get().getString(R.string.menu_versions), true);
+//        newGroup.addTextItem(vuforiaVersion, -999).setClickable(false);
+//        newGroup.addTextItem(androidVersion, -999).setClickable(false);
     }
     
 

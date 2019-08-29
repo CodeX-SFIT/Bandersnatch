@@ -259,6 +259,10 @@ public class ImageTargetsActivity extends SampleActivityBase implements SampleAp
 		Log.d(LOGTAG, "onPause");
 		super.onPause();
 
+		if(trackImage != null){
+			Log.d("TAG", "onBackPressed: Cancelling");
+			trackImage.cancel(true);
+		}
 		if (mGlView != null) {
 			mGlView.setVisibility(View.INVISIBLE);
 			mGlView.onPause();
@@ -318,7 +322,7 @@ public class ImageTargetsActivity extends SampleActivityBase implements SampleAp
 		mUILayout.setBackgroundColor(Color.BLACK);
 
 		RelativeLayout topbarLayout = mUILayout.findViewById(R.id.topbar_layout);
-		topbarLayout.setVisibility(View.VISIBLE);
+		topbarLayout.setVisibility(View.GONE);
 
 		TextView title = mUILayout.findViewById(R.id.topbar_title);
 		title.setText(getText(R.string.feature_image_targets));
@@ -469,7 +473,7 @@ public class ImageTargetsActivity extends SampleActivityBase implements SampleAp
 
 			mUILayout.setBackgroundColor(Color.TRANSPARENT);
 
-			mSampleAppMenu = new SampleAppMenu(this, this, "Image Targets",
+			mSampleAppMenu = new SampleAppMenu(this, this, "",
 					mGlView, mUILayout, mSettingsAdditionalViews);
 			setSampleAppMenuSettings();
 
@@ -666,25 +670,21 @@ public class ImageTargetsActivity extends SampleActivityBase implements SampleAp
 		group = mSampleAppMenu.addGroup("", false);
 		group.addTextItem(getString(R.string.menu_back), -1);
 
-		group = mSampleAppMenu.addGroup("", true);
-		group.addSelectionItem(getString(R.string.menu_device_tracker),
-				CMD_DEVICE_TRACKING, false);
-
 		group = mSampleAppMenu.addGroup(getString(R.string.menu_camera), true);
 		mFocusOptionView = group.addSelectionItem(getString(R.string.menu_contAutofocus),
 				CMD_AUTOFOCUS, mContAutofocus);
 		mFlashOptionView = group.addSelectionItem(
 				getString(R.string.menu_flash), CMD_FLASH, false);
 
-		group = mSampleAppMenu
-				.addGroup(getString(R.string.menu_datasets), true);
-		mStartDatasetsIndex = CMD_DATASET_START_INDEX;
-		mDatasetsNumber = mDatasetStrings.size();
-
-		group.addRadioItem("Stones & Chips", mStartDatasetsIndex, true);
+//		group = mSampleAppMenu
+//				.addGroup(getString(R.string.menu_datasets), true);
+//		mStartDatasetsIndex = CMD_DATASET_START_INDEX;
+//		mDatasetsNumber = mDatasetStrings.size();
+//
+//		group.addRadioItem("Stones & Chips", mStartDatasetsIndex, true);
 //		group.addRadioItem("Tarmac", mStartDatasetsIndex + 1, false);
 
-		mSampleAppMenu.attachMenu();
+//		mSampleAppMenu.attachMenu();
 	}
 
 
@@ -862,6 +862,7 @@ public class ImageTargetsActivity extends SampleActivityBase implements SampleAp
 					name = mRenderer.getTrackableName();
 					if(name.equals(lookingFor)) {
 						Log.d("Target", "doInBackground: tracked " + name);
+						if(count==0) publishProgress();
 						count++;
 					}else {
 						count = 0;
@@ -882,7 +883,11 @@ public class ImageTargetsActivity extends SampleActivityBase implements SampleAp
 			return null;
 		}
 
-
+		@Override
+		protected void onProgressUpdate(Void... values) {
+			Toast.makeText(ImageTargetsActivity.this, "You found it... Hold steady", Toast.LENGTH_SHORT).show();
+			super.onProgressUpdate(values);
+		}
 
 		@Override
 		protected void onPostExecute(Void aVoid) {

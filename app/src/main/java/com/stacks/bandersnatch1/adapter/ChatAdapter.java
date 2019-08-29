@@ -33,10 +33,10 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 		if(messages.get(position).getImage() != -1)
 			return -2;
-		else if(messages.get(position).getBot())
-			return 0;
 		else if(messages.get(position).getSeparator())
 			return -1;
+		else if(messages.get(position).getBot())
+			return 0;
 		else
 			return 1;
 //		return super.getItemViewType(position);
