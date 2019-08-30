@@ -1,0 +1,42 @@
+
+
+
+
+
+{
+  "story": [
+    {
+      "operations": [
+        {
+          "type": "bot",
+          "bot": "Xerox_centre"
+        },
+        {
+          "type": "user_wait"
+        },
+        {
+          "type": "ar",
+          "looking_for":"Xerox_centre"
+        },{
+          "type": "bot",
+          "bot": "codex"
+        },
+        {
+          "type": "user_wait"
+        },{
+          "type": "ar",
+          "looking_for": "codex"
+        },        {
+          "type": "bot",
+          "bot": "foundation_stone"
+        },
+        {
+          "type": "user_wait"
+        },{
+          "type": "ar",
+          "looking_for": "foundation_stone"
+        }
+      ]
+    }
+  ]
+}

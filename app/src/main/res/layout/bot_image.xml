@@ -27,7 +27,7 @@
 
 	<androidx.cardview.widget.CardView
 		android:id="@+id/content_container"
-		android:layout_width="wrap_content"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_centerVertical="true"
 		android:layout_margin="4dp"
@@ -59,9 +59,11 @@
 			<!--android:textColor="#ffffff" />-->
 
 		<ImageView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:id="@+id/bot_image"
-			android:src="@drawable/ic_launcher_background"/>
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/image"
+			android:minHeight="200dp"
+			android:scaleType="fitXY"
+			android:src="@mipmap/mosaic"/>
 	</androidx.cardview.widget.CardView>
 </RelativeLayout>

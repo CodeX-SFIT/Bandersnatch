@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 	private static int operation_index;
 	private static JSONArray current_operations;
 
-	private Boolean DEBUG = true;
+	private Boolean DEBUG = false;
 
 	private TextView header;
 	private ImageView bitmoji;
@@ -92,20 +92,20 @@ public class MainActivity extends AppCompatActivity {
 //			}
 //		});
 
-		sendButton.setOnLongClickListener(new View.OnLongClickListener() {
-			@Override
-			public boolean onLongClick(View v) {
-				if(DEBUG){
-					DEBUG = false;
-					Toast.makeText(MainActivity.this, "DEBUG MODE DISABLE", Toast.LENGTH_SHORT).show();
-				}else
-				{
-					DEBUG = true;
-					Toast.makeText(MainActivity.this, "DEBUG MODE ENABLED", Toast.LENGTH_SHORT).show();
-				}
-				return false;
-			}
-		});
+//		sendButton.setOnLongClickListener(new View.OnLongClickListener() {
+//			@Override
+//			public boolean onLongClick(View v) {
+//				if(DEBUG){
+//					DEBUG = false;
+//					Toast.makeText(MainActivity.this, "DEBUG MODE DISABLE", Toast.LENGTH_SHORT).show();
+//				}else
+//				{
+//					DEBUG = true;
+//					Toast.makeText(MainActivity.this, "DEBUG MODE ENABLED", Toast.LENGTH_SHORT).show();
+//				}
+//				return false;
+//			}
+//		});
 
 		cameraButton = findViewById(R.id.camera_container);
 		cameraButton.setOnClickListener(new View.OnClickListener() {
@@ -322,10 +322,41 @@ public class MainActivity extends AppCompatActivity {
 
 			case "image":
 				Message message3 = new Message();
-//				switch (operation.optString("image")){
-//					// TODO: 27-08-2019 add image
-//				}
-				message3.setImage(R.mipmap.ic_launcher);
+				message3.setBot(true);
+				switch (operation.optString("image_id")){
+					case "sfit_logo":
+						message3.setImage(R.mipmap.sfit_logo);
+						break;
+					case "letter":
+						message3.setImage(R.mipmap.letter);
+						break;
+					case "mask":
+						message3.setImage(R.mipmap.mask);
+						break;
+					case "ring":
+						message3.setImage(R.mipmap.ring);
+						break;
+					case "nirav_flag":
+						message3.setImage(R.mipmap.nirav_flag);
+						break;
+					case "nirav":
+						message3.setImage(R.mipmap.nirav_modi);
+						break;
+					case "mosaic":
+						message3.setImage(R.mipmap.mosaic);
+						break;
+					case "pyramids_painting":
+						message3.setImage(R.mipmap.painting);
+						break;
+					case "nirav_caught":
+						message3.setImage(R.mipmap.nirav_caught);
+						message3.setImage(R.mipmap.nirav_caught);
+						break;
+					default:
+						message3.setImage(R.mipmap.ic_launcher);
+						break;
+				}
+//				message3.setImage(R.mipmap.ic_launcher);
 				addMessageAndScroll(message3);
 				return true;
 		}

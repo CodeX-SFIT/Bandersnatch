@@ -173,6 +173,14 @@
           "wait":2
         },
         {
+          "type": "image",
+          "image_id": "letter"
+        },
+        {
+          "type": "wait",
+          "duration": 2
+        },
+        {
           "type": "bot",
           "bot": "My dear annie, I'm heading out to Phi Phi. The heist was successful but my associates have been caught. It's upto me to flee with the money. I don't know when I'll find you but we'll meet soon in Phi Phi. Till then I love you, stay safe. -NM"
         },
@@ -515,8 +523,7 @@
           "bot":"Your call mate. Choose Wisely."
         },
         {
-          "type":"wait",
-          "duration":2
+          "type":"user_wait"
         },
         {
           "type":"chooser",
@@ -886,7 +893,7 @@
         },
         {
           "type":"ar",
-          "looking_for":"xerox_centre"
+          "looking_for":"Xerox_centre"
         },
         {
           "type":"bot",

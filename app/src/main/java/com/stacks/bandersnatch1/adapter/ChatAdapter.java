@@ -117,9 +117,11 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 //			}else{
 //				holder.itemView.findViewById(R.id.icon_container).setVisibility(View.VISIBLE);
 //			}
-			Glide.with(context)
-					.load(messages.get(position).getImage())
-					.into((ImageView) holder.itemView.findViewById(R.id.bot_image));
+			if(messages.get(position).getImage() != -1)
+				Glide.with(context)
+						.load(messages.get(position).getImage())
+						.fitCenter()
+						.into((ImageView) holder.itemView.findViewById(R.id.image));
 			return;
 		}
 
