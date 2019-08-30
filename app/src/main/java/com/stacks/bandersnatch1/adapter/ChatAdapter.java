@@ -120,7 +120,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 			if(messages.get(position).getImage() != -1)
 				Glide.with(context)
 						.load(messages.get(position).getImage())
-						.fitCenter()
+				.fitCenter()
 						.into((ImageView) holder.itemView.findViewById(R.id.image));
 			return;
 		}

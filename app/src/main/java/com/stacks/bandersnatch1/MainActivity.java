@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 		bitmoji = findViewById(R.id.bitmoji);
 
 		try {
-			stories = new JSONObject(AssetJSONFile("scripts/draft3.json")).getJSONArray("story");
+			stories = new JSONObject(AssetJSONFile("scripts/draft4.json")).getJSONArray("story");
 		} catch (JSONException e) {
 			e.printStackTrace();
 		} catch (IOException e){
@@ -221,6 +221,9 @@ public class MainActivity extends AppCompatActivity {
 						case "annie":
 							message.setCharacter_pic(R.mipmap.annie);
 							break;
+						case "Anonymous":
+							message.setCharacter_pic(R.mipmap.anonymous);
+							break;
 						default:
 							message.setCharacter_pic(R.mipmap.ic_launcher);
 							message.setCharacter_name("The Bot");
@@ -350,7 +353,9 @@ public class MainActivity extends AppCompatActivity {
 						break;
 					case "nirav_caught":
 						message3.setImage(R.mipmap.nirav_caught);
-						message3.setImage(R.mipmap.nirav_caught);
+						break;
+					case "supreme_leader":
+						message3.setImage(R.mipmap.supreme_leader);
 						break;
 					default:
 						message3.setImage(R.mipmap.ic_launcher);
@@ -387,7 +392,11 @@ public class MainActivity extends AppCompatActivity {
 
 	void incrementOpAndNext(){
 		operation_index++;
-		execOp();
+		if(operation_index == current_operations.length()){
+			Toast.makeText(this, "STORY COMPLETED", Toast.LENGTH_LONG).show();
+		}else {
+			execOp();
+		}
 	}
 
 	public String AssetJSONFile (String filename) throws IOException {

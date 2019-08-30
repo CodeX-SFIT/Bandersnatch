@@ -857,28 +857,63 @@ public class ImageTargetsActivity extends SampleActivityBase implements SampleAp
 		@Override
 		protected Void doInBackground(Void... voids) {
 			int count = 0;
-			while (!this.isCancelled()) {
-				if (mRenderer.isTargetCurrentlyTracked()) {
-					name = mRenderer.getTrackableName();
-					if(name.equals(lookingFor)) {
-						Log.d("Target", "doInBackground: tracked " + name);
-						if(count==0) publishProgress();
-						count++;
-					}else {
+
+			if(lookingFor.contains(",")){
+				String[] lookingFors = lookingFor.split(",");
+				while (!this.isCancelled()) {
+					if (mRenderer.isTargetCurrentlyTracked()) {
+						name = mRenderer.getTrackableName();
+						int i=0;
+						for (i = 0; i < lookingFors.length; i++) {
+							if (name.equals(lookingFors[i])) {
+								Log.d("Target", "doInBackground: tracked " + name);
+								if (count == 0) publishProgress();
+								count++;
+								break;
+							}
+						}
+						if(i==lookingFors.length){
+							count=0;
+						}
+
+					} else {
 						count = 0;
 					}
-				} else {
-					count = 0;
+					if (count == 5) {
+						break;
+					}
+					try {
+						Thread.sleep(200);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					Log.d("TAG", "doInBackground: checking");
 				}
-				if (count == 5) {
-					break;
+			}else {
+
+				while (!this.isCancelled()) {
+					if (mRenderer.isTargetCurrentlyTracked()) {
+						name = mRenderer.getTrackableName();
+						if (name.equals(lookingFor)) {
+							Log.d("Target", "doInBackground: tracked " + name);
+							if (count == 0) publishProgress();
+							count++;
+						} else {
+							count = 0;
+						}
+					} else {
+						count = 0;
+					}
+					if (count == 5) {
+						break;
+					}
+					try {
+						Thread.sleep(200);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					Log.d("TAG", "doInBackground: checking");
 				}
-				try {
-					Thread.sleep(200);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				Log.d("TAG", "doInBackground: checking");
 			}
 			return null;
 		}

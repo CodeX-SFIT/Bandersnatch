@@ -60,10 +60,9 @@
 
 		<ImageView
 			android:layout_width="match_parent"
-			android:layout_height="match_parent"
+			android:layout_height="wrap_content"
 			android:id="@+id/image"
-			android:minHeight="200dp"
-			android:scaleType="fitXY"
+			android:scaleType="fitCenter"
 			android:src="@mipmap/mosaic"/>
 	</androidx.cardview.widget.CardView>
 </RelativeLayout>

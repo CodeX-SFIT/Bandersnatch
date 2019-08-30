@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="gate_painting2" size="1.000000 0.351733" />
+    <ImageTarget name="gate_painting1" size="1.000000 0.626592" />
+    <ImageTarget name="reading_room1" size="1.000000 0.711027" />
+    <ImageTarget name="workshop1" size="1.000000 0.750000" />
+    <ImageTarget name="canteen1" size="1.000000 0.553499" />
     <ImageTarget name="library" size="1.000000 0.578333" />
     <ImageTarget name="mosaic" size="1.000000 0.750000" />
     <ImageTarget name="sfit_logo" size="1.000000 1.333333" />
