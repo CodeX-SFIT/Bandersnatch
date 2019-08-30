@@ -259,6 +259,7 @@ public class MainActivity extends AppCompatActivity {
 				return true;
 			case "wait":
 				Integer wait = DEBUG?1000:(1000*operation.optInt("duration"));
+				if(wait<5000) wait = 4000;
 				CountDownTimer timer = new CountDownTimer(wait, 1000) {
 					@Override
 					public void onTick(long millisUntilFinished) {}
